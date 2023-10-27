@@ -1,0 +1,127 @@
+<script lang="ts" setup>
+
+const emit = defineEmits(["closeModal"])
+
+defineProps({
+  open: Boolean
+})
+
+
+function close() {
+  emit("closeModal")
+}
+</script>
+
+<template>
+  <div v-if="open" class="overlay" @click="close">
+    <div
+        :class="open ? 'slider__open' : 'slider__closed'"
+        class="modal"
+    >
+<!--      <div class="ham-closed">-->
+<!--        <Hamburger-->
+<!--            :invert-header=false-->
+<!--            checked static black-->
+<!--            @click="close"-->
+<!--        />-->
+<!--      </div>-->
+      <div class="links">
+        <router-link to="about" @click="close">
+          <h2>ABOUT</h2>
+        </router-link>
+        <router-link to="filmography" @click="close">
+          <h2>FILMOGRAPHY</h2>
+        </router-link>
+        <router-link to="contact" @click="close">
+          <h2>CONTACT</h2>
+        </router-link>
+      </div>
+
+      <div class="legal">
+        <router-link class='check' to="legal" @click="close">
+          <h2>Legal Notice</h2>
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="sass" scoped>
+
+.legal
+  position: absolute
+  bottom: 63px
+  h2
+    font-size: 17px
+    letter-spacing: 5px
+    color: #424242 !important
+
+.overlay
+  background: white
+  left: 0
+  position: absolute
+  width: 100vw
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+.modal
+  z-index: 12
+  width: 100%
+  height: 100%
+  background-color: white
+  //top: $header-height
+  position: absolute
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+
+  //&__open
+  //background-color: aqua
+  //transition: ease-in-out 0.35s
+
+  //&__closed
+  //  background-color: red !important
+  //  height: 0
+  //  margin-right: $slider-width
+  //  right: -$slider-width
+  //  visibility: hidden
+  //  overflow-y: hidden
+//background-color: aquamarine
+//transition: ease-in-out 0.35s
+
+.ham-closed
+  top: $header-margin
+  right: $header-margin
+
+.links
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  h2
+    width: max-content
+    font-size: $h2-font-size
+    text-shadow: 0 0 1px #838383
+    color: black
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 7px
+    margin: 20px
+  h2:hover
+    text-decoration: none
+    color: #494949
+    //text-shadow: darkgrey 1px 0px
+
+
+
+
+
+
+
+</style>

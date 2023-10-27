@@ -1,0 +1,20 @@
+variables:
+  FTP_HOST: "ftp.strato.de"
+  FTP_USERNAME: "511747553.swh.strato-hosting.eu"
+  FTP_PASSWORD: "5DpWKAiXRazKf3e"
+  DEPLOYMENT_PATH: "./"
+
+stages:
+  - deploy
+
+deploy:
+  image: oven/bun:debian
+  stage: deploy
+  allow_failure: true
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y lftp
+  script:
+    - bun install
+    - bun run generate
+    - lftp -c "set ftp:ssl-allow no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST; mirror -n -Rnev .output/public/ $DEPLOYMENT_PATH --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"

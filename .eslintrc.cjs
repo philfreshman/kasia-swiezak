@@ -1,11 +1,12 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2023": true
     },
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",// "plugin:@typescript-eslint/recommended",
         "plugin:vue/vue3-essential"
     ],
     "overrides": [

@@ -66,7 +66,7 @@ function closeOnEsc(event: KeyboardEvent) {
 
 #header
   z-index: 123
-  background: red
+  //background: red
   top: 0
   float: left
   position: fixed

@@ -18,7 +18,7 @@ onMounted(() => {
 
 
 function openModal() {
-  isModalOpen.value = true
+  isModalOpen.value = !isModalOpen.value
   $eventBus.emit("blurBackground", true)
 }
 

@@ -1,7 +1,7 @@
 variables:
   FTP_HOST: "ftp.strato.de"
   FTP_USERNAME: "511747553.swh.strato-hosting.eu"
-  FTP_PASSWORD: "5DpWKAiXRazKf3e"
+  FTP_PASSWORD: "NA6FKX2VzqQddkU"
   DEPLOYMENT_PATH: "./"
 
 stages:

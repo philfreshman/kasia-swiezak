@@ -7,7 +7,8 @@ export default defineNuxtConfig({
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       meta: [
-        { name: "KASIA BELL", content: "Personal website" }
+        { name: "description", content: "My awesome site description...." },
+        { name: "keywords", content: "production design, set decoration, film, movies, design, art"}
       ],
     },
   },

@@ -9,10 +9,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.5.1",
+    "@pinia/nuxt": "latest",
     "@vitejs/plugin-vue": "^4.4.0",
     "mitt": "^3.0.1",
-    "pinia": "^2.1.6",
+    "pinia": "latest",
     "typescript": "^5.2.2",
     "sass-loader": "^13.3.2",
     "vue3-carousel-nuxt": "^1.1.0"
@@ -20,14 +20,15 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-module": "^4.1.0",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "bun-types": "latest",
     "eslint": "^8.53.0",
     "eslint-plugin-vue": "^9.18.1",
-    "bun-types": "latest",
-    "nuxt": "^3.8.1",
+    "nuxt": "latest",
     "sass": "^1.69.5",
-    "vue": "^3.3.8",
+    "vue": "latest",
     "vue-router": "^4.2.5"
   }
 }

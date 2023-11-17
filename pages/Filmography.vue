@@ -1,12 +1,5 @@
 <script lang="ts" setup>
-import {ref} from "vue"
 
-const { $eventBus } = useNuxtApp()
-const isBlurred = ref(false)
-
-$eventBus.on("blurBackground", (value: boolean) => {
-  isBlurred.value = value
-})
 </script>
 
 <template>
@@ -14,7 +7,6 @@ $eventBus.on("blurBackground", (value: boolean) => {
   <div
       id="filmography"
       class="container"
-      :class="isBlurred ? 'blur' : ''"
   >
     <TimelineRow>
       <template #top-row><h2>2021</h2></template>

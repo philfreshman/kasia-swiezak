@@ -1,14 +1,4 @@
 <script setup lang="ts">
-import {useHeaderStore} from "~/stores/header"
-
-const header = useHeaderStore()
-const isBlurred = ref(header.transparent)
-const { $eventBus } = useNuxtApp()
-
-
-$eventBus.on("blurBackground", (value: boolean) => {
-  isBlurred.value = value
-})
 
 
 onMounted(() => {
@@ -28,6 +18,7 @@ function replaceArrows(){
     }
   }
 }
+
 </script>
 
 <template>
@@ -40,7 +31,6 @@ function replaceArrows(){
     <NuxtSlide v-for="(image) in images" :key="image.id">
       <div
           class="hero-image"
-          :class="isBlurred ? 'blur' : ''"
           :style="`background-image: url(${image.url})`"
       />
     </NuxtSlide>

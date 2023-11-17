@@ -1,14 +1,6 @@
 <script setup lang="ts">
+
 import TimelineRow from "../components/TimelineRow.vue"
-import {ref} from "vue"
-const { $eventBus } = useNuxtApp()
-
-const isBlurred = ref(false)
-
-$eventBus.on("blurBackground", (value: boolean) => {
-  isBlurred.value = value
-})
-
 
 </script>
 
@@ -17,7 +9,6 @@ $eventBus.on("blurBackground", (value: boolean) => {
 
   </div>
   <div
-      :class="isBlurred ? 'blur' : ''"
       class="container" id="about"
   >
     <TimelineRow>

@@ -13,18 +13,11 @@ function close() {
 </script>
 
 <template>
-  <div v-if="open" class="overlay" @click="close">
+  <div v-if="open" @click="close">
     <div
         :class="open ? 'slider__open' : 'slider__closed'"
         class="modal"
     >
-<!--      <div class="ham-closed">-->
-<!--        <Hamburger-->
-<!--            :invert-header=false-->
-<!--            checked static black-->
-<!--            @click="close"-->
-<!--        />-->
-<!--      </div>-->
       <div class="links">
         <router-link to="about" @click="close">
           <h2>ABOUT</h2>
@@ -37,16 +30,13 @@ function close() {
         </router-link>
       </div>
 
-      <div class="legal">
-        <router-link class='check' to="legal" @click="close">
-          <h2>Legal Notice</h2>
-        </router-link>
-      </div>
+
     </div>
   </div>
 </template>
 
 <style lang="sass" scoped>
+
 
 .legal
   position: absolute
@@ -56,15 +46,15 @@ function close() {
     letter-spacing: 5px
     color: #424242 !important
 
-.overlay
-  background: white
-  left: 0
-  position: absolute
-  width: 100vw
-  height: 100%
-  display: flex
-  justify-content: center
-  align-items: center
+//.overlay
+//  background: white
+//  left: 0
+//  position: absolute
+//  width: 100vw
+//  height: 100%
+//  display: flex
+//  justify-content: center
+//  align-items: center
 
 
 .modal
@@ -73,7 +63,10 @@ function close() {
   height: 100%
   background-color: white
   //top: $header-height
-  position: absolute
+  float: left
+  position: fixed
+  top: 0
+  right: 0
   display: flex
   flex-direction: column
   justify-content: center

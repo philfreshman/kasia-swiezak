@@ -1,14 +1,5 @@
 <script setup lang="ts">
 import TimelineRow from "../components/TimelineRow.vue"
-import {ref} from "vue"
-const { $eventBus } = useNuxtApp()
-
-const isBlurred = ref(false)
-
-$eventBus.on("blurBackground", (value: boolean) => {
-  isBlurred.value = value
-})
-
 
 </script>
 
@@ -17,7 +8,6 @@ $eventBus.on("blurBackground", (value: boolean) => {
 
   </div>
   <div
-      :class="isBlurred ? 'blur' : ''"
       class="container" id="legal"
   >
     <TimelineRow>
@@ -30,7 +20,7 @@ $eventBus.on("blurBackground", (value: boolean) => {
         +49 176 238 778 20<br>
         mail(at)kasiaswiezak.com
         </p>
-        <p>Development by <a style="text-decoration: underline" href="https://www.linkedin.com/in/philfreshman/">Philip Swiezak</a></p>
+        <p>Website development by <a id="ps-link" href="https://www.linkedin.com/in/philfreshman/">Philip Swiezak</a></p>
       </template>
     </TimelineRow>
 
@@ -79,9 +69,6 @@ $eventBus.on("blurBackground", (value: boolean) => {
       </template>
     </TimelineRow>
 
-
-
-
   </div>
 </template>
 
@@ -95,5 +82,6 @@ $eventBus.on("blurBackground", (value: boolean) => {
   //background-color: rgba(255, 0, 0, 0.11)
   width: 850px
 
-
+#ps-link:hover
+  text-decoration: underline
 </style>

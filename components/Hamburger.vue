@@ -1,15 +1,28 @@
 <script setup lang="ts">
+import {useHamburgerStore} from "~/stores/hamburger"
+import {onMounted} from "vue"
+
 const props = defineProps({
   invertHeader: {type: Boolean, required: true},
-  checked: Boolean,
-  static: Boolean
+  static: {type: Boolean, required: false,}
 })
+
+const hamburgerStore = useHamburgerStore()
+hamburgerStore.flipState()
+
 
 function click(e: Event) {
   if (props.static)
     e.preventDefault()
 }
 
+onMounted(() => {
+  if(hamburgerStore.isOpen){
+    setTimeout(() =>{
+      hamburgerStore.setClose()
+    })
+  }
+})
 
 
 </script>
@@ -17,7 +30,7 @@ function click(e: Event) {
 <template>
   <div id="ham"
        :class="props.invertHeader ? 'invert' : '' ">
-    <input class="toggle" type="checkbox" :checked="props.checked"
+    <input class="toggle" type="checkbox" :checked="hamburgerStore.isOpen"
            @click="click"/>
     <div class="hamburger">
       <div></div>

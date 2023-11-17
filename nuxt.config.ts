@@ -17,9 +17,13 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "vue3-carousel-nuxt",
     "@nuxtjs/eslint-module",
+    "@pinia-plugin-persistedstate/nuxt",
   ],
-  pinia: {
-    autoImports: ["defineStore"]
+  // pinia: {
+  //   storesDirs: ["./stores/**"],
+  // },
+  piniaPersistedstate: {
+    storage: "localStorage"
   },
   carousel: {
     prefix: "Nuxt"

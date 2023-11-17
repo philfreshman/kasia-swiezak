@@ -1,36 +1,33 @@
 <script setup lang="ts">
-
 import Modal from "./Modal.vue"
 import Hamburger from "./Hamburger.vue"
-import {onMounted, ref} from "vue"
 import {useHeaderStore} from "~/stores/header"
 
-const { $eventBus } = useNuxtApp()
-const isModalOpen = ref(false)
-const invertHeader = useHeaderStore().transparent
-
-
+const hamburgerStore = useHamburgerStore()
+const headerStore = useHeaderStore()
+const isRootPath = window.location.pathname === "/"
+const showSubtitle = true
 
 onMounted(() => {
   document.addEventListener("keyup", closeOnEsc)
 })
 
 
+function handleHamburgerClick() {
+  hamburgerStore.flipState()
+}
 
-function openModal() {
-  isModalOpen.value = !isModalOpen.value
-  $eventBus.emit("blurBackground", true)
+function headerClick(){
+  hamburgerStore.setClose()
 }
 
 function closeModal() {
-  isModalOpen.value = false
-  $eventBus.emit("blurBackground", false)
+  hamburgerStore.setClose()
 }
 
 function closeOnEsc(event: KeyboardEvent) {
-  if (event.key === "Escape" && isModalOpen.value === true) {
-    isModalOpen.value = false
-    $eventBus.emit("blurBackground", false)
+  if (event.key === "Escape" && hamburgerStore.isOpen === true) {
+    hamburgerStore.setClose()
   }
 }
 
@@ -40,26 +37,25 @@ function closeOnEsc(event: KeyboardEvent) {
 <template>
     <div
         id="header"
-        :class="invertHeader ? 'transparent' : 'white-background'"
+        :class="headerStore.isTransparent ? 'transparent' : 'white-background'"
     >
       <router-link to="/">
-        <div
-            :class="invertHeader ? 'invert' : '' "
+        <div @click="headerClick"
+            :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
             class="header__kasia"
             >
-          <p id="kasia">KASIA BELL</p>
-          <p id="production-design">Production Design & Set Decoration</p>
+          <p v-if="showSubtitle" id="kasia">KASIA BELL</p>
+          <p v-if="showSubtitle" id="production-design">Production Design & Set Decoration</p>
         </div>
       </router-link>
       <div class="header__hamburger">
         <Hamburger
-            :invert-header="invertHeader"
-            :checked="isModalOpen"
-            @click="openModal"
+            @click="handleHamburgerClick"
+            :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
         />
       </div>
     </div>
-    <Modal :open="isModalOpen" @close-modal="closeModal"/>
+    <Modal :open="hamburgerStore.isOpen" @close-modal="closeModal"/>
 </template>
 
 <style scoped lang="sass">

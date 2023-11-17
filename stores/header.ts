@@ -2,12 +2,15 @@ import {defineStore} from "pinia"
 
 export const useHeaderStore = defineStore("header", {
   state: () => ({
-    transparent: false
+    isTransparent: false,
   }),
 
   actions: {
     setTransparent(value: boolean) {
-      this.transparent = value
+      this.isTransparent = value
     },
+    flipState(){
+      this.isTransparent = !this.isTransparent
+    }
   },
 })

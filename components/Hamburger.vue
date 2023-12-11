@@ -103,7 +103,7 @@ $hamburger-width: 35px
 
 
 .hamburger > div:hover
-  background: red
+  background: black
 
 
 /* CREATING THE TOP AND BOTTOM LINES :

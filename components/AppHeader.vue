@@ -6,7 +6,6 @@ import {useHeaderStore} from "~/stores/header"
 const hamburgerStore = useHamburgerStore()
 const headerStore = useHeaderStore()
 const isRootPath = window.location.pathname === "/"
-const showSubtitle = isRootPath
 
 onMounted(() => {
   document.addEventListener("keyup", closeOnEsc)
@@ -44,8 +43,8 @@ function closeOnEsc(event: KeyboardEvent) {
             :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
             class="header__kasia"
             >
-          <p v-if="showSubtitle || hamburgerStore.isOpen" id="kasia">KASIA BELL</p>
-          <p v-if="showSubtitle || hamburgerStore.isOpen" id="production-design">Production Design & Set Decoration</p>
+          <p v-if="!hamburgerStore.isOpen" id="kasia">KASIA BELL</p>
+          <p v-if="!hamburgerStore.isOpen" id="production-design">Production Design & Set Decoration</p>
         </div>
       </router-link>
       <div class="header__hamburger">

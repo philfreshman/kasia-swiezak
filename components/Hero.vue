@@ -1,26 +1,3 @@
-<script setup lang="ts">
-
-
-onMounted(() => {
-  replaceArrows()
-})
-
-
-function replaceArrows(){
-  const icons = document.getElementsByClassName("carousel__icon")
-  for (let i = 0; i < icons.length; i++) {
-    icons[i].setAttribute("viewBox", "0 0 39 11")
-    const arrow = icons[i].lastChild as HTMLElement
-    if (i%2 == 0) {
-      arrow.setAttribute("d", "m6.482 10.914.388-.387L2.868 6.008H40v-.68h-37.133l4.132-4.312-.387-.387L1.749 5.621z")
-    } else {
-      arrow.setAttribute("d", "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z")
-    }
-  }
-}
-
-</script>
-
 <template>
   <NuxtCarousel
       ref="myCarousel"
@@ -59,64 +36,52 @@ export default defineComponent({
     return {
       images: [
         {
-          id: -3,
-          url: "./images/table_room.webp"
-        },
-        {
-          id: -2,
-          url: "./images/dachboden.jpeg"
-        },
-        {
-          id: -1,
-          url: "./images/zimmer.jpeg"
-        },
-        {
           id: 0,
-          url: "./images/green.jpeg"
+          url: "./images/new/1_Anselm.jpg"
         },
         {
           id: 1,
-          url: "./images/1.jpeg"
+          url: "./images/new/table_room.webp"
         },
         {
           id: 2,
-          url: "./images/2.jpeg"
+          url: "./images/new/2_Schmidt.png"
         },
         {
           id: 3,
-          url: "./images/3.jpeg"
+          url: "./images/new/2a_AON.png"
         },
         {
           id: 4,
-          url: "./images/4.jpeg"
+          url: "./images/new/3_das_Quartett.png"
         },
         {
           id: 5,
-          url: "./images/5.jpeg"
+          url: "./images/new/4_AON-Club.jpg"
         },
         {
           id: 6,
-          url: "./images/6.jpeg"
+          url: "./images/new/5_Sehsüchte.png"
         },
         {
           id: 7,
-          url: "./images/7.jpeg"
+          url: "./images/new/6_AON-Konfi.jpg"
         },
         {
           id: 8,
-          url: "./images/8.jpeg"
+          url: "./images/new/7_Wiedergeburt.jpg"
         },
         {
           id: 9,
-          url: "./images/webp_full/2_Wohnzimmer_3.webp"
+          url: "./images/new/8_Hornemann.jpg"
         },
         {
           id: 10,
-          url: "./images/webp_full/5_Loft_3.webp"
+          url: "./images/new/9_AON-Büro_Melissa.jpg"
         },
         {
           id: 11,
-          url: "./images/webp_full/9_Club.webp"
+          url: "./images/new/10_Schmidt-Whg_Tekla.png"
         }
       ]
     }
@@ -132,12 +97,24 @@ export default defineComponent({
         (this.$refs.myCarousel as any).next()
         break
       }
+    },
+    replaceArrows() {
+      const icons = document.getElementsByClassName("carousel__icon")
+      for (let i = 0; i < icons.length; i++) {
+        icons[i].setAttribute("viewBox", "0 0 39 11")
+        const arrow = icons[i].lastChild as HTMLElement
+        if (i % 2 == 0) {
+          arrow.setAttribute("d", "m6.482 10.914.388-.387L2.868 6.008H40v-.68h-37.133l4.132-4.312-.387-.387L1.749 5.621z")
+        } else {
+          arrow.setAttribute("d", "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z")
+        }
+      }
     }
   },
 
-
   mounted() {
-    document.addEventListener("keyup", this.handleArrowKey)
+    document.addEventListener("keyup", this.handleArrowKey),
+    this.replaceArrows()
   }
 
 })

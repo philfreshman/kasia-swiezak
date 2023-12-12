@@ -25,7 +25,6 @@
   height: 100vh
 
 
-
 .container
   //background-color: indianred
   padding-bottom: $header-height * 1 !important
@@ -62,11 +61,23 @@
 
 
 .carousel__prev, .carousel__next
-  // space from border
-  //width: 173px !important
-  padding-left: 200px
-  width: 90vw !important
+  width: 173px !important
+  margin: 300px
   top: 90% !important
+
+.carousel__prev
+  left: 0 !important
+
+.carousel__next
+  right: 0 !important
+
+.carousel__icon:hover
+  fill: white !important
+
+//button:hover
+//  fill: red !important
+
+//path:hover
 
 
 .no-scroll

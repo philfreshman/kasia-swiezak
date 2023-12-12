@@ -2,24 +2,24 @@
   <NuxtCarousel
       ref="myCarousel"
       :autoplay="6000"
-      wrap-around
       touchDrag
+      wrap-around
   >
     <NuxtSlide v-for="(image) in images" :key="image.id">
       <div
-          class="hero-image"
           :style="`background-image: url(${image.url})`"
+          class="hero-image"
       />
     </NuxtSlide>
 
     <template #addons>
-      <NuxtNavigation/>
+      <NuxtNavigation />
     </template>
   </NuxtCarousel>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue"
+import { defineComponent } from "vue"
 
 type Data = {
   images: HeroImages[]
@@ -37,53 +37,53 @@ export default defineComponent({
       images: [
         {
           id: 0,
-          url: "./images/new/1_Anselm.jpg"
+          url: "./images/new/1_Anselm.jpg",
         },
         {
           id: 1,
-          url: "./images/new/table_room.webp"
+          url: "./images/new/table_room.webp",
         },
         {
           id: 2,
-          url: "./images/new/2_Schmidt.png"
+          url: "./images/new/2_Schmidt.png",
         },
         {
           id: 3,
-          url: "./images/new/2a_AON.png"
+          url: "./images/new/2a_AON.png",
         },
         {
           id: 4,
-          url: "./images/new/3_das_Quartett.png"
+          url: "./images/new/3_das_Quartett.png",
         },
         {
           id: 5,
-          url: "./images/new/4_AON-Club.jpg"
+          url: "./images/new/4_AON-Club.jpg",
         },
         {
           id: 6,
-          url: "./images/new/5_Sehsüchte.png"
+          url: "./images/new/5_Sehsüchte.png",
         },
         {
           id: 7,
-          url: "./images/new/6_AON-Konfi.jpg"
+          url: "./images/new/6_AON-Konfi.jpg",
         },
         {
           id: 8,
-          url: "./images/new/7_Wiedergeburt.jpg"
+          url: "./images/new/7_Wiedergeburt.jpg",
         },
         {
           id: 9,
-          url: "./images/new/8_Hornemann.jpg"
+          url: "./images/new/8_Hornemann.jpg",
         },
         {
           id: 10,
-          url: "./images/new/9_AON-Büro_Melissa.jpg"
+          url: "./images/new/9_AON-Büro_Melissa.jpg",
         },
         {
           id: 11,
-          url: "./images/new/10_Schmidt-Whg_Tekla.png"
-        }
-      ]
+          url: "./images/new/10_Schmidt-Whg_Tekla.png",
+        },
+      ],
     }
   },
 
@@ -109,18 +109,22 @@ export default defineComponent({
           arrow.setAttribute("d", "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z")
         }
       }
-    }
+    },
+
   },
 
   mounted() {
     document.addEventListener("keyup", this.handleArrowKey),
     this.replaceArrows()
-  }
+
+  },
 
 })
+
+
 </script>
 
-<style scoped lang="sass">
+<style lang="sass" scoped>
 .carousel
   height: 100vh
 
@@ -138,7 +142,6 @@ export default defineComponent({
   width: 100vw
 
 
-
 .header-item__kasia
   color: white !important
 
@@ -150,5 +153,6 @@ export default defineComponent({
 
   &::after
     background: white !important
+
 
 </style>

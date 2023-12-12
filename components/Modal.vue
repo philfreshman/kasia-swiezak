@@ -108,11 +108,9 @@ function close() {
     margin: 20px
   h2:hover
     text-decoration: none
-    color: #494949
-    //text-shadow: darkgrey 1px 0px
-
-
-
+    //color: #494949
+    color: rgba(0, 0, 0, 0.92)
+    text-shadow: 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0)
 
 
 

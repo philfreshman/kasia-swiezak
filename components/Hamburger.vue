@@ -1,10 +1,10 @@
-<script setup lang="ts">
-import {useHamburgerStore} from "~/stores/hamburger"
-import {onMounted} from "vue"
+<script lang="ts" setup>
+import { useHamburgerStore } from "~/stores/hamburger"
+import { onMounted } from "vue"
 
 const props = defineProps({
-  invertHeader: {type: Boolean, required: true},
-  static: {type: Boolean, required: false,}
+  invertHeader: { type: Boolean, required: true },
+  static: { type: Boolean, required: false },
 })
 
 const hamburgerStore = useHamburgerStore()
@@ -12,13 +12,16 @@ hamburgerStore.flipState()
 
 
 function click(e: Event) {
+  document.getElementById("bar")?.classList.remove("hover")
+
   if (props.static)
     e.preventDefault()
 }
 
+
 onMounted(() => {
-  if(hamburgerStore.isOpen){
-    setTimeout(() =>{
+  if (hamburgerStore.isOpen) {
+    setTimeout(() => {
       hamburgerStore.setClose()
     })
   }
@@ -30,15 +33,15 @@ onMounted(() => {
 <template>
   <div id="ham"
        :class="props.invertHeader ? 'invert' : '' ">
-    <input class="toggle" type="checkbox" :checked="hamburgerStore.isOpen"
-           @click="click"/>
+    <input :checked="hamburgerStore.isOpen" class="toggle" type="checkbox"
+           @click="click" />
     <div class="hamburger">
       <div></div>
     </div>
   </div>
 </template>
 
-<style scoped lang="sass">
+<style lang="sass" scoped>
 $hamburger-height: 25px
 $hamburger-width: 35px
 
@@ -62,6 +65,7 @@ $hamburger-width: 35px
   right: 0
   height: $hamburger-height
   width: $hamburger-width
+  transition: 0s
 
   display: flex
   align-items: center
@@ -72,6 +76,8 @@ $hamburger-width: 35px
 
 
 /* CREATING THE MIDDLE LINE OF THE HAMBURGER :
+
+//.hamburger > div:first-of-type
 
 .hamburger > div
   position: relative
@@ -102,8 +108,8 @@ $hamburger-width: 35px
     top: 13px
 
 
-.hamburger > div:hover
-  background: black
+.hover, .hover::before, .hover::after
+  box-shadow: 0 0 1px red, 0 0 1px * 2 red, 0 0 1px * 3 red
 
 
 /* CREATING THE TOP AND BOTTOM LINES :

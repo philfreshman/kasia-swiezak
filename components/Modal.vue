@@ -3,7 +3,7 @@
 const emit = defineEmits(["closeModal"])
 
 defineProps({
-  open: Boolean
+  open: Boolean,
 })
 
 
@@ -41,6 +41,7 @@ function close() {
 .legal
   position: absolute
   bottom: 63px
+
   h2
     font-size: 17px
     letter-spacing: 5px
@@ -73,20 +74,6 @@ function close() {
   align-items: center
 
 
-  //&__open
-  //background-color: aqua
-  //transition: ease-in-out 0.35s
-
-  //&__closed
-  //  background-color: red !important
-  //  height: 0
-  //  margin-right: $slider-width
-  //  right: -$slider-width
-  //  visibility: hidden
-  //  overflow-y: hidden
-//background-color: aquamarine
-//transition: ease-in-out 0.35s
-
 .ham-closed
   top: $header-margin
   right: $header-margin
@@ -96,6 +83,7 @@ function close() {
   flex-direction: column
   justify-content: center
   align-items: center
+
   h2
     width: max-content
     font-size: $h2-font-size
@@ -106,13 +94,11 @@ function close() {
     align-items: center
     padding: 7px
     margin: 20px
+
   h2:hover
     text-decoration: none
-    //color: #494949
     color: rgba(0, 0, 0, 0.92)
     text-shadow: 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0)
-
-
 
 
 </style>

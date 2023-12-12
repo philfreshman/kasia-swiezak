@@ -19,6 +19,18 @@ function click(e: Event) {
 }
 
 
+function hover() {
+  document.getElementById("bar")?.classList.toggle("glow-outer")
+
+  // if (!hamburgerStore.$state.isOpen) {
+  //   console.log("glow")
+  //   document.getElementById("bar")?.classList.toggle("glow-inner")
+  // } else {
+  //   // document.getElementById("bar")?.classList.remove("glow-inner")
+  // }
+}
+
+
 onMounted(() => {
   if (hamburgerStore.isOpen) {
     setTimeout(() => {
@@ -35,8 +47,8 @@ onMounted(() => {
        :class="props.invertHeader ? 'invert' : '' ">
     <input :checked="hamburgerStore.isOpen" class="toggle" type="checkbox"
            @click="click" />
-    <div class="hamburger">
-      <div></div>
+    <div class="hamburger" @mouseenter="hover" @mouseleave="hover">
+      <div id="bar"></div>
     </div>
   </div>
 </template>
@@ -86,7 +98,7 @@ $hamburger-width: 35px
   background: $black-transparent
   height: 1.5px
   width: 85%
-  transition: all 0.3s ease
+  transition: all 0s ease
 
   &::before
     content: ''
@@ -104,36 +116,28 @@ $hamburger-width: 35px
     width: 100%
     height: 1.5px
     transition: all 0.3s ease
-    //top: -10px
     top: 13px
 
 
-.hover, .hover::before, .hover::after
-  box-shadow: 0 0 1px red, 0 0 1px * 2 red, 0 0 1px * 3 red
-
-
-/* CREATING THE TOP AND BOTTOM LINES :
- *TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE:
-
-/* IF THE TOGGLE IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :
-
 .toggle:checked + .hamburger > div
   background: rgba(0, 0, 0, 0)
+  visibility: hidden
 
   &::before
     top: 0
+    visibility: visible
     transform: rotate(45deg)
     background: $black-transparent
 
   &::after
     top: 0
+    visibility: visible
     transform: rotate(135deg)
     background: $black-transparent
 
 
-/* AND ROTATING THE TOP AND BOTTOM LINES :
-
-
+.glow-outer::before, .glow-outer::after, .glow-outer
+  background: black !important
 
 
 </style>

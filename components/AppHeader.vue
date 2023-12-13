@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import Modal from "./Modal.vue"
 import Hamburger from "./Hamburger.vue"
-import {useHeaderStore} from "~/stores/header"
+import { useHeaderStore } from "~/stores/header"
 
 const hamburgerStore = useHamburgerStore()
 const headerStore = useHeaderStore()
@@ -16,7 +16,7 @@ function handleHamburgerClick() {
   hamburgerStore.flipState()
 }
 
-function headerClick(){
+function headerClick() {
   hamburgerStore.setClose()
 }
 
@@ -34,30 +34,31 @@ function closeOnEsc(event: KeyboardEvent) {
 
 
 <template>
-    <div
-        id="header"
-        :class="headerStore.isTransparent ? 'transparent' : 'white-background'"
-    >
-      <router-link to="/">
-        <div @click="headerClick"
-            :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
-            class="header__kasia"
-            >
-          <p v-if="!hamburgerStore.isOpen" id="kasia">KASIA BELL</p>
-          <p v-if="!hamburgerStore.isOpen" id="production-design">Production Design & Set Decoration</p>
-        </div>
-      </router-link>
-      <div class="header__hamburger">
-        <Hamburger
-            @click="handleHamburgerClick"
-            :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
-        />
+  <div
+      id="header"
+      :class="headerStore.isTransparent ? 'transparent' : 'white-background'"
+  >
+    <router-link to="/">
+      <div :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
+           class="header"
+           @click="headerClick"
+      >
+        <p v-if="!hamburgerStore.isOpen" id="kasia" class="header__kasia">KASIA BELL</p>
+        <p v-if="!hamburgerStore.isOpen" id="production-design" class="header__production-design">Production Design &
+          Set Decoration</p>
       </div>
+    </router-link>
+    <div class="header">
+      <Hamburger
+          :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
+          @click="handleHamburgerClick"
+      />
     </div>
-    <Modal :open="hamburgerStore.isOpen" @close-modal="closeModal"/>
+  </div>
+  <Modal :open="hamburgerStore.isOpen" @close-modal="closeModal" />
 </template>
 
-<style scoped lang="sass">
+<style lang="sass" scoped>
 
 #header
   z-index: 123
@@ -74,9 +75,13 @@ function closeOnEsc(event: KeyboardEvent) {
 
 .header
   z-index: 123
+  margin: calc($header-margin)
+
   &__kasia
-    margin: calc($header-margin - 7px)
-    padding-left: 6px
-    height: 100%
+    line-height: 1.3rem
+
+  &__production-design
+    padding-top: 8px
+
 
 </style>

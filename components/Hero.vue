@@ -30,58 +30,63 @@ type HeroImages = {
   url: string
 }
 
+
+// https://pixelied.com/convert/png-converter/png-to-webp
+// https://pixelied.com/convert/png-converter/png-to-webp
+// https://pixelied.com/convert/png-converter/png-to-webp
+
 export default defineComponent({
   name: "Hero",
   data(): Data {
     return {
       images: [
         {
-          id: 0,
-          url: "./images/new/1_Anselm.jpg",
-        },
-        {
           id: 1,
-          url: "./images/new/table_room.webp",
+          url: "./images/new/1_Anselm.webp",
         },
         {
           id: 2,
-          url: "./images/new/2_Schmidt.png",
+          url: "./images/new/2_table_room.webp",
         },
         {
           id: 3,
-          url: "./images/new/2a_AON.png",
+          url: "./images/new/3_Schmidt.png",
         },
         {
           id: 4,
-          url: "./images/new/3_das_Quartett.png",
+          url: "./images/new/4_AON.png",
         },
         {
           id: 5,
-          url: "./images/new/4_AON-Club.jpg",
+          url: "./images/new/5_das_Quartett.webp",
         },
         {
           id: 6,
-          url: "./images/new/5_Sehsüchte.png",
+          url: "./images/new/6_AON-Club.jpg",
         },
         {
           id: 7,
-          url: "./images/new/6_AON-Konfi.jpg",
+          url: "./images/new/7_Sehsüchte.png",
         },
         {
           id: 8,
-          url: "./images/new/7_Wiedergeburt.jpg",
+          url: "./images/new/8_AON-Konfi.jpg",
         },
         {
           id: 9,
-          url: "./images/new/8_Hornemann.jpg",
+          url: "./images/new/9_Wiedergeburt.jpg",
         },
         {
           id: 10,
-          url: "./images/new/9_AON-Büro_Melissa.jpg",
+          url: "./images/new/10_Hornemann.jpg",
         },
         {
           id: 11,
-          url: "./images/new/10_Schmidt-Whg_Tekla.png",
+          url: "./images/new/11_Buero_Melissa.jpg",
+        },
+        {
+          id: 12,
+          url: "./images/new/12_Schmidt-Whg_Tekla.png",
         },
       ],
     }

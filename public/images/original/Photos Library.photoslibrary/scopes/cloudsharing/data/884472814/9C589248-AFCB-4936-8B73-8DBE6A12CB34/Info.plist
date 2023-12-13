@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cloudOwnerEmail</key>
+	<string>is@bananenbiegerei.de</string>
+	<key>cloudOwnerFirstName</key>
+	<string>Ingo</string>
+	<key>cloudOwnerHashedPersonID</key>
+	<string>b3cc18a38b5731bc7dd780be5bd7e46efb1263b46ba8009ab790dd9b25985e13</string>
+	<key>cloudOwnerLastName</key>
+	<string>Schmid</string>
+	<key>cloudPublicURLEnabled</key>
+	<integer>0</integer>
+	<key>cloudRelationshipState</key>
+	<integer>2</integer>
+	<key>cloudSubscriptionDate</key>
+	<date>2023-09-12T15:13:55Z</date>
+	<key>title</key>
+	<string>Die Bells</string>
+</dict>
+</plist>

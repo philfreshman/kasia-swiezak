@@ -30,6 +30,11 @@ function close() {
         </router-link>
       </div>
 
+      <div class="legal">
+        <router-link class='check' to="legal" @click="close">
+          <h2>Imprint</h2>
+        </router-link>
+      </div>
 
     </div>
   </div>
@@ -40,22 +45,12 @@ function close() {
 
 .legal
   position: absolute
-  bottom: 63px
+  bottom: $header-margin
 
   h2
     font-size: 17px
     letter-spacing: 5px
     color: #424242 !important
-
-//.overlay
-//  background: white
-//  left: 0
-//  position: absolute
-//  width: 100vw
-//  height: 100%
-//  display: flex
-//  justify-content: center
-//  align-items: center
 
 
 .modal
@@ -83,6 +78,7 @@ function close() {
   flex-direction: column
   justify-content: center
   align-items: center
+  margin-top: -72px
 
   h2
     width: max-content

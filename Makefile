@@ -2,7 +2,7 @@ include .env
 export
 
 
-IGNORE_IMAGES = true
+IGNORE_IMAGES = false
 
 all: build copy_to_ftp
 
@@ -23,9 +23,9 @@ build:
 
 transfer:
 ifeq ($(IGNORE_IMAGES), true)
-	lftp -c "open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}:${FTP_PORT}; mirror --only-newer --reverse -x .output/public/images/new/ .output/public/images/original/ --delete --verbose=3 ${FTP_LOCAL_PATH} ${FTP_DEPLOYMENT_PATH}"
+	lftp -c "open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}:${FTP_PORT}; mirror --only-newer --reverse -x images/* --exclude-glob '.DS_Store' --delete --verbose=3 ${FTP_LOCAL_PATH} ${FTP_DEPLOYMENT_PATH} quit"
 else
-	lftp -c "open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}:${FTP_PORT}; mirror --only-newer --reverse -x ^\images/original/ --delete --verbose=3 ${FTP_LOCAL_PATH} ${FTP_DEPLOYMENT_PATH}"
+	lftp -c "open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}:${FTP_PORT}; mirror --only-newer --reverse -x images/original --exclude-glob '.DS_Store' --delete --verbose=3 ${FTP_LOCAL_PATH} ${FTP_DEPLOYMENT_PATH} quit"
 endif
 
 

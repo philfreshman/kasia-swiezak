@@ -44,7 +44,7 @@ const images = readonly<HeroImage[]>([
   },
   {
     id: 7,
-    url: "./images/new/7_Sehsüchte.png",
+    url: "./images/new/7_Sehsüchte.webp",
   },
   {
     id: 8,
@@ -97,15 +97,15 @@ const replaceArrows = () => {
 
 <template>
   <NuxtCarousel
-      ref="carousel"
-      :autoplay="6000"
-      touchDrag
-      wrap-around
+    ref="carousel"
+    :autoplay="6000"
+    touchDrag
+    wrap-around
   >
     <NuxtSlide v-for="(image) in images" :key="image.id">
       <div
-          :style="`background-image: url(${image.url})`"
-          class="hero-image"
+        :style="`background-image: url(${image.url})`"
+        class="hero-image"
       />
     </NuxtSlide>
 

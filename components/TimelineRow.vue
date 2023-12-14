@@ -4,11 +4,11 @@
       <slot name="top-row" />
     </div>
     <div class="bottom-row">
-      <div class="block" />
+      <div class="block-left" />
       <div class="bottom-content">
         <slot name="bottom-row" />
       </div>
-      <div class="block" />
+      <div class="block-right" />
     </div>
   </div>
 </template>
@@ -18,22 +18,23 @@
   font-family: "Wermena", serif
   height: max-content
 
-.block
-  min-width: 65px
-  width: 65px
+.block-left
+  min-width: 4.2rem
+
+.block-right
+  min-width: 4.2rem
 
 .bottom-row
   display: flex
   flex-direction: row
-  padding-top: 22px
-  padding-bottom: 30px
-  font-size: $p-font-size
+  padding-top: 1.375rem
+  padding-bottom: 1.875rem
 
 .bottom-content
   p
-    padding-top: 22px
+    padding-top: 1.375rem
 
   p:last-of-type
-    padding-bottom: 45px
+    padding-bottom: 2.8rem
 
 </style>

@@ -19,19 +19,19 @@ const close = () => emit("closeModal")
     >
       <div class="links">
         <router-link to="about" @click="close">
-          <h2 class="lineUp">ABOUT</h2>
+          <h1 class="lineUp">ABOUT</h1>
         </router-link>
         <router-link to="filmography" @click="close">
-          <h2 class="lineUp">FILMOGRAPHY</h2>
+          <h1 class="lineUp">FILMOGRAPHY</h1>
         </router-link>
         <router-link to="contact" @click="close">
-          <h2 class="lineUp">CONTACT</h2>
+          <h1 class="lineUp">CONTACT</h1>
         </router-link>
       </div>
 
-      <div class="legal">
+      <div class="legal bottom-margin">
         <router-link class='check' to="legal" @click="close">
-          <h2 class="lineUp">Imprint</h2>
+          <h1 id="imprint" class="lineUp">Imprint</h1>
         </router-link>
       </div>
 
@@ -41,13 +41,13 @@ const close = () => emit("closeModal")
 
 <style lang="sass" scoped>
 
+#imprint
+  font-size: 1.2rem !important
 
 .legal
   position: absolute
-  bottom: $header-margin
 
   h2
-    font-size: 17px
     letter-spacing: 5px
     color: #424242 !important
 
@@ -68,10 +68,6 @@ const close = () => emit("closeModal")
   align-items: center
 
 
-.ham-closed
-  top: $header-margin
-  right: $header-margin
-
 .links
   display: flex
   flex-direction: column
@@ -79,9 +75,8 @@ const close = () => emit("closeModal")
   align-items: center
   margin-top: -72px
 
-  h2
+  h1
     width: max-content
-    font-size: $h2-font-size
     text-shadow: 0 0 1px #838383
     color: black
     display: flex
@@ -90,7 +85,7 @@ const close = () => emit("closeModal")
     padding: 7px
     margin: 20px
 
-  h2:hover
+  h1:hover
     text-decoration: none
     color: rgba(0, 0, 0, 0.92)
     text-shadow: 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0)

@@ -9,17 +9,18 @@
   -moz-osx-font-smoothing: grayscale
   -webkit-text-size-adjust: 100%
 
-  $vc-nav-width: 70px !important
+  //$vc-nav-width: 70px !important
 
 
   html, body, div, input, p, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
     margin: 0
     padding: 0
-    border: 30px
+    border: 0
     vertical-align: baseline
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     text-size-adjust: none
+
 
 #app
   height: 100vh
@@ -27,8 +28,8 @@
 
 .container
   //background-color: indianred
-  padding-bottom: $header-height * 1 !important
-  margin-top: 200px !important
+  padding-bottom: $header-height !important
+  margin-top: $header-height !important
   position: absolute
   left: 50%
   transform: translate(-50%, 0)
@@ -40,8 +41,8 @@
 .invert
   filter: invert(1)
 
-.transparent
-  color: transparent
+.white-background
+  background-color: white !important
 
 .carousel
   &__icon
@@ -55,7 +56,6 @@
 
 .carousel__prev, .carousel__next
   width: 173px !important
-  top: calc(100% - $header-margin - 10px) !important
 
 .carousel__prev
   left: -10px !important

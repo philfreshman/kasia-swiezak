@@ -29,6 +29,7 @@
 
 
 #contact
+  font-family: "Minion-Pro", serif !important
   height: 100%
   width: 100%
   position: absolute

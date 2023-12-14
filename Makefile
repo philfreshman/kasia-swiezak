@@ -2,7 +2,7 @@ include .env
 export
 
 
-IGNORE_IMAGES = false
+IGNORE_IMAGES = true
 
 all: build copy_to_ftp
 
@@ -28,6 +28,11 @@ else
 	lftp -c "open -u ${FTP_USERNAME},${FTP_PASSWORD} ${FTP_HOST}:${FTP_PORT}; mirror --only-newer --reverse -x images/original --exclude-glob '.DS_Store' --delete --verbose=3 ${FTP_LOCAL_PATH} ${FTP_DEPLOYMENT_PATH} quit"
 endif
 
+	rm -r ./.output
+
 
 generate:
 	bunx nuxi generate
+
+
+

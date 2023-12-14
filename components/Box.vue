@@ -1,9 +1,11 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+
 const props = defineProps({
-  src: {type: String, required: true},
-  text: {type: String, required: true},
-  routerLink: {type: String, required: true}
+  src: { type: String, required: true },
+  text: { type: String, required: true },
+  routerLink: { type: String, required: true },
 })
+
 </script>
 
 <template>
@@ -11,9 +13,9 @@ const props = defineProps({
     <div class="picture">
       <router-link :to="props.routerLink">
         <img
-            class="img"
-            :src="props.src"
-            alt="picture"
+          :src="props.src"
+          alt="picture"
+          class="img"
         />
       </router-link>
     </div>
@@ -23,7 +25,7 @@ const props = defineProps({
   </div>
 </template>
 
-<style scoped lang="sass">
+<style lang="sass" scoped>
 
 .box
   margin: 10px

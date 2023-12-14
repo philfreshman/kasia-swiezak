@@ -7,32 +7,31 @@ defineProps({
 })
 
 
-function close() {
-  emit("closeModal")
-}
+const close = () => emit("closeModal")
+
 </script>
 
 <template>
   <div v-if="open" @click="close">
     <div
-        :class="open ? 'slider__open' : 'slider__closed'"
-        class="modal"
+      :class="open ? 'slider__open' : 'slider__closed'"
+      class="modal line"
     >
       <div class="links">
         <router-link to="about" @click="close">
-          <h2>ABOUT</h2>
+          <h2 class="lineUp">ABOUT</h2>
         </router-link>
         <router-link to="filmography" @click="close">
-          <h2>FILMOGRAPHY</h2>
+          <h2 class="lineUp">FILMOGRAPHY</h2>
         </router-link>
         <router-link to="contact" @click="close">
-          <h2>CONTACT</h2>
+          <h2 class="lineUp">CONTACT</h2>
         </router-link>
       </div>
 
       <div class="legal">
         <router-link class='check' to="legal" @click="close">
-          <h2>Imprint</h2>
+          <h2 class="lineUp">Imprint</h2>
         </router-link>
       </div>
 
@@ -95,6 +94,28 @@ function close() {
     text-decoration: none
     color: rgba(0, 0, 0, 0.92)
     text-shadow: 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0), 0 0 0.5px rgb(0, 0, 0)
+
+
+.lineUp
+  animation: 0.5s anim-lineUp ease-out
+
+@keyframes anim-lineUp
+  0%
+    opacity: 0
+    transform: translateY(15%)
+
+
+  20%
+    opacity: 0.5
+    transform: translateY(10%)
+
+  50%
+    opacity: 1
+    transform: translateY(5%)
+
+  100%
+    opacity: 1
+    transform: translateY(0%)
 
 
 </style>

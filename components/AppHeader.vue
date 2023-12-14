@@ -12,22 +12,15 @@ onMounted(() => {
 })
 
 
-function handleHamburgerClick() {
-  hamburgerStore.flipState()
-}
+const handleHamburgerClick = () => hamburgerStore.flipState()
 
-function headerClick() {
-  hamburgerStore.setClose()
-}
+const headerClick = () => hamburgerStore.setClose()
 
-function closeModal() {
-  hamburgerStore.setClose()
-}
+const closeModal = () => hamburgerStore.setClose()
 
-function closeOnEsc(event: KeyboardEvent) {
-  if (event.key === "Escape" && hamburgerStore.isOpen === true) {
+const closeOnEsc = (event: KeyboardEvent) => {
+  if (event.key === "Escape" && hamburgerStore.isOpen === true)
     hamburgerStore.setClose()
-  }
 }
 
 </script>
@@ -35,23 +28,27 @@ function closeOnEsc(event: KeyboardEvent) {
 
 <template>
   <div
-      id="header"
-      :class="headerStore.isTransparent ? 'transparent' : 'white-background'"
+    id="header"
+    :class="headerStore.isTransparent ? 'transparent' : 'white-background'"
   >
     <router-link to="/">
-      <div :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
-           class="header"
-           @click="headerClick"
+      <div
+        :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
+        class="header"
+        @click="headerClick"
       >
-        <p v-if="!hamburgerStore.isOpen" id="kasia" class="header__kasia">KASIA BELL</p>
-        <p v-if="!hamburgerStore.isOpen" id="production-design" class="header__production-design">Production Design &
-          Set Decoration</p>
+        <p v-if="!hamburgerStore.isOpen" id="kasia" class="header__kasia">
+          KASIA BELL
+        </p>
+        <p v-if="!hamburgerStore.isOpen" id="production-design" class="header__production-design">
+          Production Design & Set Decoration
+        </p>
       </div>
     </router-link>
     <div class="header">
       <Hamburger
-          :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
-          @click="handleHamburgerClick"
+        :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
+        @click="handleHamburgerClick"
       />
     </div>
   </div>
@@ -62,7 +59,6 @@ function closeOnEsc(event: KeyboardEvent) {
 
 #header
   z-index: 123
-  //background: red
   top: 0
   float: left
   position: fixed

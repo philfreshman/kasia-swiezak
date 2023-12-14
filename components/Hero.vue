@@ -1,6 +1,103 @@
+<script lang="ts" setup>
+
+onMounted(() => {
+  document.addEventListener("keyup", handleArrowKey)
+  replaceArrows()
+})
+
+
+type HeroImage = {
+  id: number
+  url: string
+}
+
+// https://pixelied.com/convert/png-converter/png-to-webp
+// https://pixelied.com/convert/png-converter/png-to-webp
+// https://pixelied.com/convert/png-converter/png-to-webp
+
+
+const carousel = ref()
+const images = readonly<HeroImage[]>([
+  {
+    id: 1,
+    url: "./images/new/1_Anselm.webp",
+  },
+  {
+    id: 2,
+    url: "./images/new/2_table_room.webp",
+  },
+  {
+    id: 3,
+    url: "./images/new/3_Schmidt.png",
+  },
+  {
+    id: 4,
+    url: "./images/new/4_AON.png",
+  },
+  {
+    id: 5,
+    url: "./images/new/5_das_Quartett.webp",
+  },
+  {
+    id: 6,
+    url: "./images/new/6_AON-Club.jpg",
+  },
+  {
+    id: 7,
+    url: "./images/new/7_Sehsüchte.png",
+  },
+  {
+    id: 8,
+    url: "./images/new/8_AON-Konfi.jpg",
+  },
+  {
+    id: 9,
+    url: "./images/new/9_Wiedergeburt.jpg",
+  },
+  {
+    id: 10,
+    url: "./images/new/10_Hornemann.jpg",
+  },
+  {
+    id: 11,
+    url: "./images/new/11_Buero_Melissa.jpg",
+  },
+  {
+    id: 12,
+    url: "./images/new/12_Schmidt-Whg_Tekla.png",
+  }])
+
+
+const handleArrowKey = (event: KeyboardEvent) => {
+  switch (event.key) {
+  case "ArrowLeft":
+    (carousel.value as any).prev()
+    break
+  case "ArrowRight":
+    (carousel.value as any).next()
+    break
+  }
+}
+
+
+const replaceArrows = () => {
+  const icons = document.getElementsByClassName("carousel__icon")
+  for (let i = 0; i < icons.length; i++) {
+    icons[i].setAttribute("viewBox", "0 0 39 11")
+    const arrow = icons[i].lastChild as HTMLElement
+    if (i % 2 == 0) {
+      arrow.setAttribute("d", "m6.482 10.914.388-.387L2.868 6.008H40v-.68h-37.133l4.132-4.312-.387-.387L1.749 5.621z")
+    } else {
+      arrow.setAttribute("d", "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z")
+    }
+  }
+}
+
+</script>
+
 <template>
   <NuxtCarousel
-      ref="myCarousel"
+      ref="carousel"
       :autoplay="6000"
       touchDrag
       wrap-around
@@ -18,116 +115,6 @@
   </NuxtCarousel>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-
-type Data = {
-  images: HeroImages[]
-}
-
-type HeroImages = {
-  id: number,
-  url: string
-}
-
-
-// https://pixelied.com/convert/png-converter/png-to-webp
-// https://pixelied.com/convert/png-converter/png-to-webp
-// https://pixelied.com/convert/png-converter/png-to-webp
-
-export default defineComponent({
-  name: "Hero",
-  data(): Data {
-    return {
-      images: [
-        {
-          id: 1,
-          url: "./images/new/1_Anselm.webp",
-        },
-        {
-          id: 2,
-          url: "./images/new/2_table_room.webp",
-        },
-        {
-          id: 3,
-          url: "./images/new/3_Schmidt.png",
-        },
-        {
-          id: 4,
-          url: "./images/new/4_AON.png",
-        },
-        {
-          id: 5,
-          url: "./images/new/5_das_Quartett.webp",
-        },
-        {
-          id: 6,
-          url: "./images/new/6_AON-Club.jpg",
-        },
-        {
-          id: 7,
-          url: "./images/new/7_Sehsüchte.png",
-        },
-        {
-          id: 8,
-          url: "./images/new/8_AON-Konfi.jpg",
-        },
-        {
-          id: 9,
-          url: "./images/new/9_Wiedergeburt.jpg",
-        },
-        {
-          id: 10,
-          url: "./images/new/10_Hornemann.jpg",
-        },
-        {
-          id: 11,
-          url: "./images/new/11_Buero_Melissa.jpg",
-        },
-        {
-          id: 12,
-          url: "./images/new/12_Schmidt-Whg_Tekla.png",
-        },
-      ],
-    }
-  },
-
-  methods: {
-    handleArrowKey(event: KeyboardEvent) {
-      switch (event.key) {
-      case "ArrowLeft":
-        (this.$refs.myCarousel as any).prev()
-        break
-      case "ArrowRight":
-        (this.$refs.myCarousel as any).next()
-        break
-      }
-    },
-    replaceArrows() {
-      const icons = document.getElementsByClassName("carousel__icon")
-      for (let i = 0; i < icons.length; i++) {
-        icons[i].setAttribute("viewBox", "0 0 39 11")
-        const arrow = icons[i].lastChild as HTMLElement
-        if (i % 2 == 0) {
-          arrow.setAttribute("d", "m6.482 10.914.388-.387L2.868 6.008H40v-.68h-37.133l4.132-4.312-.387-.387L1.749 5.621z")
-        } else {
-          arrow.setAttribute("d", "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z")
-        }
-      }
-    },
-
-  },
-
-  mounted() {
-    document.addEventListener("keyup", this.handleArrowKey),
-    this.replaceArrows()
-
-  },
-
-})
-
-
-</script>
 
 <style lang="sass" scoped>
 .carousel

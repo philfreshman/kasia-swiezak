@@ -1,32 +1,32 @@
-import {defineStore} from "pinia"
+import { defineStore } from "pinia"
 
-function handleScrollLock(open: boolean){
+function handleScrollLock(open: boolean) {
   const body = document.getElementsByTagName("body")[0]
-  if (open){
+  if (open) {
     body.classList.add("no-scroll")
-  } else{
+  } else {
     body.classList.remove("no-scroll")
   }
 }
 
 export const useHamburgerStore = defineStore("hamburger", {
   state: () => ({
-    isOpen: false
+    isOpen: false,
   }),
 
   actions: {
-    setOpen(){
+    setOpen() {
       this.isOpen = true
       handleScrollLock(this.isOpen)
     },
-    setClose(){
+    setClose() {
       this.isOpen = false
       handleScrollLock(this.isOpen)
     },
-    flipState(){
+    flipState() {
       this.isOpen = !this.isOpen
       handleScrollLock(this.isOpen)
-    }
+    },
   },
   persist: true,
 })

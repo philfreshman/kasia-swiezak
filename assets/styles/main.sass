@@ -34,26 +34,19 @@
   transform: translate(-50%, 0)
   width: $container-width !important
 
-
-.carousel
-  &__icon
-    color: rgba(255, 255, 255, 0.65) !important
-
-
-.blur
-  transition: all
-  //transition-duration: 0.2s
-  filter: blur(2px)
-  -o-filter: blur(2px)
-  -ms-filter: blur(2px)
-  -moz-filter: blur(2px)
-  -webkit-filter: blur(2px)
+.no-scroll
+  overflow: hidden
 
 .invert
   filter: invert(1)
 
 .transparent
   color: transparent
+
+.carousel
+  &__icon
+    color: rgba(255, 255, 255, 0.65) !important
+
 
 .carousel svg
   // arrow size
@@ -74,6 +67,6 @@
   fill: white !important
 
 
-.no-scroll
-  overflow: hidden
+.carousel__liveregion.carousel__sr-only
+  bottom: 0
 

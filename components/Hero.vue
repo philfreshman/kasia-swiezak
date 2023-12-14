@@ -44,7 +44,7 @@ const images = readonly<HeroImage[]>([
   },
   {
     id: 7,
-    url: "./images/new/7_Sehsüchte.webp",
+    url: "./images/new/7_Sehsuchte.webp",
   },
   {
     id: 8,

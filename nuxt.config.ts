@@ -1,4 +1,3 @@
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -6,13 +5,16 @@ export default defineNuxtConfig({
       title: "KASIA BELL",
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
+      htmlAttrs: {
+        lang: "en",
+      },
       meta: [
-        { name: "description", content: "My awesome site description...." },
-        { name: "keywords", content: "production design, set decoration, film, movies, design, art"}
+        { name: "description", content: "Kasia Bell personal website" },
+        { name: "keywords", content: "production design, set decoration, film, movies, design, art, berlin" },
       ],
     },
   },
-  devtools: {enabled: false},
+  devtools: { enabled: false },
   ssr: false,
   modules: [
     "@pinia/nuxt",
@@ -24,10 +26,10 @@ export default defineNuxtConfig({
   //   storesDirs: ["./stores/**"],
   // },
   piniaPersistedstate: {
-    storage: "localStorage"
+    storage: "localStorage",
   },
   carousel: {
-    prefix: "Nuxt"
+    prefix: "Nuxt",
   },
   css: ["@/assets/styles/main.sass", "@/assets/styles/fonts.sass"],
   dev: true,
@@ -35,9 +37,9 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         sass: {
-          additionalData: "@import '@/assets/styles/variables.sass'\n"
-        }
-      }
-    }
-  }
+          additionalData: "@import '@/assets/styles/variables.sass'\n",
+        },
+      },
+    },
+  },
 })

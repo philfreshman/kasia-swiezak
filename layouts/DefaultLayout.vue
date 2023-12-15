@@ -1,9 +1,6 @@
 <template>
   <NuxtLayout>
-    <AppHeader />
+    <Header />
     <RouterView />
   </NuxtLayout>
 </template>
-
-
-

@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: false },
   app: {
     head: {
       title: "KASIA BELL",
@@ -14,32 +15,25 @@ export default defineNuxtConfig({
       ],
     },
   },
-  devtools: { enabled: false },
   ssr: false,
   modules: [
+    "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "vue3-carousel-nuxt",
     "@nuxtjs/eslint-module",
     "@pinia-plugin-persistedstate/nuxt",
   ],
-  // pinia: {
-  //   storesDirs: ["./stores/**"],
-  // },
   piniaPersistedstate: {
     storage: "localStorage",
   },
   carousel: {
     prefix: "Nuxt",
   },
-  css: ["@/assets/styles/main.sass", "@/assets/styles/fonts.sass"],
-  dev: true,
-  vite: {
-    css: {
-      preprocessorOptions: {
-        sass: {
-          additionalData: "@import '@/assets/styles/variables.sass'\n",
-        },
-      },
+  css: ["@/assets/styles/fonts.sass", "@/assets/styles/main.sass"],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 })

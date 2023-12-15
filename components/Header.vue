@@ -11,13 +11,9 @@ onMounted(() => {
   document.addEventListener("keyup", closeOnEsc)
 })
 
-
 const handleHamburgerClick = () => hamburgerStore.flipState()
-
 const headerClick = () => hamburgerStore.setClose()
-
 const closeModal = () => hamburgerStore.setClose()
-
 const closeOnEsc = (event: KeyboardEvent) => {
   if (event.key === "Escape" && hamburgerStore.isOpen === true)
     hamburgerStore.setClose()
@@ -29,25 +25,26 @@ const closeOnEsc = (event: KeyboardEvent) => {
 <template>
   <div
     id="header"
-    :class="headerStore.isTransparent ? 'transparent' : 'white-background'"
+    :class="headerStore.isTransparent ? 'bg-transparent' : 'bg-white md:bg-transparent' "
   >
     <router-link to="/">
       <div
         :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
-        class="header"
+        class="m-[var(--page-margin-sm)] md:m-[var(--page-margin-md)] lg:m-[var(--page-margin-lg)]"
         @click="headerClick"
       >
-        <p v-if="!hamburgerStore.isOpen" id="kasia" class="header__kasia">
+        <p v-if="!hamburgerStore.isOpen" id="kasia" class="leading-[1.4em]">
           KASIA BELL
         </p>
-        <p v-if="!hamburgerStore.isOpen" id="production-design" class="header__production-design">
+        <p v-if="!hamburgerStore.isOpen" id="production-design" class="pt-1">
           Production Design & Set Decoration
         </p>
       </div>
     </router-link>
-    <div class="header">
+    <div class="m-[var(--page-margin-sm)] md:m-[var(--page-margin-md)] lg:m-[var(--page-margin-lg)]">
       <Hamburger
         :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
+        class="m-50"
         @click="handleHamburgerClick"
       />
     </div>
@@ -62,22 +59,19 @@ const closeOnEsc = (event: KeyboardEvent) => {
   top: 0
   float: left
   position: fixed
-  height: $header-height
   width: 100%
   display: flex
   flex-direction: row
   justify-content: space-between
 
 
-.header
-  z-index: 123
-  margin: calc($header-margin)
+#kasia
+  letter-spacing: 4px
+  font-size: 1.58rem
 
-  &__kasia
-    line-height: 1.3rem
 
-  &__production-design
-    padding-top: 8px
+#production-design
+  font-size: 1rem
 
 
 </style>

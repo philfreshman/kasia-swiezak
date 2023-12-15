@@ -116,13 +116,7 @@ const replaceArrows = () => {
 </template>
 
 
-<style lang="sass" scoped>
-.carousel
-  height: 100vh
-
-  &__viewport
-    height: 100% !important
-
+<style lang="sass">
 
 .hero-image
   transition: all
@@ -134,17 +128,35 @@ const replaceArrows = () => {
   width: 100vw
 
 
-.header-item__kasia
-  color: white !important
+.carousel
+  height: 100vh
 
-.hamburger > div
-  background: white !important
+  &__viewport
+    height: 100% !important
 
-  &::before
-    background: white !important
+.carousel
+  &__icon
+    color: rgba(255, 255, 255, 0.65) !important
 
-  &::after
-    background: white !important
+.carousel svg
+  // arrow size
+  width: 80px !important
+
+.carousel__prev, .carousel__next
+  width: 173px !important
+  top: calc(100% - var(--page-margin-lg) - 10px) !important
+
+.carousel__prev
+  left: -10px !important
+
+.carousel__next
+  right: -10px !important
+
+.carousel__icon:hover
+  fill: white !important
+
+.carousel__liveregion.carousel__sr-only
+  height: 0
 
 
 </style>

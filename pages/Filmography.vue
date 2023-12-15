@@ -1,18 +1,15 @@
-<script lang="ts" setup>
-
-</script>
-
 <template>
-
-  <div
-      id="filmography"
-      class="container"
+  <div class="box flex flex-col w-fit
+              mx-[var(--page-margin-sm)]
+              md:mx-[var(--page-margin-md)]
+              lg:mx-[var(--page-margin-xl)]
+              xl:m-auto"
   >
     <TimelineRow>
       <template #top-row><h2>2021</h2></template>
       <template #bottom-row>
         <p>
-          'Anselm - Das Rauschen der Zeit, Documentary Feature',  Road Movies GmbH | Set Decorator<br>
+          'Anselm - Das Rauschen der Zeit, Documentary Feature', Road Movies GmbH | Set Decorator<br>
           Director: Wim Wenders
         </p>
         <p>
@@ -55,7 +52,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h2>2018</h2></template>
+      <template #top-row><h2 class="mt-5">2018</h2></template>
       <template #bottom-row>
         <p>
           'Bayer, Lefax Pump Liquid', Commercial, Crossbones GmbH | Production Designer<br>
@@ -245,8 +242,3 @@
     </TimelineRow>
   </div>
 </template>
-
-<style scoped lang="sass">
-#filmography
-  padding-left: 150px
-</style>

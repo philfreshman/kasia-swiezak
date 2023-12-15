@@ -5,14 +5,14 @@
 <template>
 
   <div
-    id="filmography"
-    class="container "
+      id="filmography"
+      class="container"
   >
     <TimelineRow>
-      <template #top-row><h1>2021</h1></template>
+      <template #top-row><h2>2021</h2></template>
       <template #bottom-row>
         <p>
-          'Anselm - Das Rauschen der Zeit, Documentary Feature', Road Movies GmbH | Set Decorator<br>
+          'Anselm - Das Rauschen der Zeit, Documentary Feature',  Road Movies GmbH | Set Decorator<br>
           Director: Wim Wenders
         </p>
         <p>
@@ -23,7 +23,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2020</h1></template>
+      <template #top-row><h2>2020</h2></template>
       <template #bottom-row>
         <p>
           'Just One Last Question, TV-Show', Netflix / Zoo Agency GmbH | Set Decorator<br>
@@ -33,7 +33,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2019</h1></template>
+      <template #top-row><h2>2019</h2></template>
       <template #bottom-row>
         <p>
           'Cyberobics. Go Live', Commercial, Darkbright Film | Production Designer<br>
@@ -55,7 +55,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2018</h1></template>
+      <template #top-row><h2>2018</h2></template>
       <template #bottom-row>
         <p>
           'Bayer, Lefax Pump Liquid', Commercial, Crossbones GmbH | Production Designer<br>
@@ -73,7 +73,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2017</h1></template>
+      <template #top-row><h2>2017</h2></template>
       <template #bottom-row>
         <p>
           'NFON', Commercial, Mr. Bob Films GmbH | Production Designer<br>
@@ -83,7 +83,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2016</h1></template>
+      <template #top-row><h2>2016</h2></template>
       <template #bottom-row>
         <p>
           'HUK Coburg - Alles geklärt', Commercial, E+P Films GmbH | Production Designer<br>
@@ -101,7 +101,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2014</h1></template>
+      <template #top-row><h2>2014</h2></template>
       <template #bottom-row>
         <p>
           'Bridge of Spies', Feature, Dream Works SKG | Assistant Set Decorator<br>
@@ -115,7 +115,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2013</h1></template>
+      <template #top-row><h2>2013</h2></template>
       <template #bottom-row>
         <p>
           'Big Business', Feature, Vierundzwanzigste Babelsberg Film GmbH | Prop Assistant<br>
@@ -137,7 +137,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2012</h1></template>
+      <template #top-row><h2>2012</h2></template>
       <template #bottom-row>
         <p>
           'Staatsgeheimnis Bankenrettung', Documentary, Arpad Bondy Filmproduction | Production Designer<br>
@@ -159,7 +159,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2011</h1></template>
+      <template #top-row><h2>2011</h2></template>
       <template #bottom-row>
         <p>
           'Reported Missing', Feature, Junifilm GmbH | Assistant Production Designer<br>
@@ -177,7 +177,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2010</h1></template>
+      <template #top-row><h2>2010</h2></template>
       <template #bottom-row>
         <p>
           'Reported Missing', Feature, Junifilm GmbH | Assistant Production Designer<br>
@@ -195,7 +195,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2009</h1></template>
+      <template #top-row><h2>2009</h2></template>
       <template #bottom-row>
         <p>
           'Kaiser und König', Short, dffb | Set Decorator<br>
@@ -213,7 +213,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2008</h1></template>
+      <template #top-row><h2>2008</h2></template>
       <template #bottom-row>
         <p>
           'Pandorum', Feature, Constantin Film | Art Department Assistant & Set Dresser<br>
@@ -231,7 +231,7 @@
     </TimelineRow>
 
     <TimelineRow>
-      <template #top-row><h1>2007</h1></template>
+      <template #top-row><h2>2007</h2></template>
       <template #bottom-row>
         <p>
           'Valkyrie', Feature, United Artists | Art Department Assistant<br>
@@ -246,7 +246,7 @@
   </div>
 </template>
 
-<style lang="sass">
+<style scoped lang="sass">
 #filmography
-  padding-left: 9.375rem
+  padding-left: 150px
 </style>

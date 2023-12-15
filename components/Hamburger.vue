@@ -38,7 +38,7 @@ onMounted(() => {
   <div :class="props.invertHeader ? 'invert' : '' ">
     <input :checked="hamburgerStore.isOpen" class="toggle" type="checkbox"
            @click="hamburgerClick" />
-    <div class="hamburger page-margin" @mouseenter="addHover" @mouseleave="removeHover">
+    <div class="hamburger" @mouseenter="addHover" @mouseleave="removeHover">
       <span v-if="!hamburgerStore.isOpen">
         <svg id="newHam" fill="none" height="40" viewBox="0 0 33 33" width="40" xmlns="http://www.w3.org/2000/svg">
           <path d="M25.3158 13.5617H8.1377" stroke="rgba(0, 0, 0, 0.75)" />

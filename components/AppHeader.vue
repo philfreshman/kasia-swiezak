@@ -34,7 +34,7 @@ const closeOnEsc = (event: KeyboardEvent) => {
     <router-link to="/">
       <div
         :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
-        class="header page-margin"
+        class="header"
         @click="headerClick"
       >
         <p v-if="!hamburgerStore.isOpen" id="kasia" class="header__kasia">
@@ -62,28 +62,16 @@ const closeOnEsc = (event: KeyboardEvent) => {
   top: 0
   float: left
   position: fixed
-  height: min-content
+  height: $header-height
   width: 100%
   display: flex
   flex-direction: row
   justify-content: space-between
 
 
-.transparent
-  background-color: transparent
-
-
-#kasia
-  font-family: Raleway, serif
-  letter-spacing: 4px
-  font-size: 1.58rem
-
-#production-design
-  font-family: "Minion-Pro-Medium", serif !important
-  font-size: 1rem
-
 .header
   z-index: 123
+  margin: calc($header-margin)
 
   &__kasia
     line-height: 1.3rem

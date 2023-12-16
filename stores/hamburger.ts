@@ -1,5 +1,6 @@
 import { defineStore } from "pinia"
 
+
 function handleScrollLock(open: boolean) {
   const body = document.getElementsByTagName("body")[0]
   if (open) {

@@ -7,14 +7,26 @@ import HeaderItem from "~/components/HeaderItem.vue"
 const hamburgerStore = useHamburgerStore()
 const headerStore = useHeaderStore()
 const isRootPath = window.location.pathname === "/"
+const body = document.getElementsByTagName("body")[0]
+
 
 onMounted(() => {
   document.addEventListener("keyup", closeOnEsc)
 })
 
-const handleHamburgerClick = () => hamburgerStore.flipState()
-const headerClick = () => hamburgerStore.setClose()
-const closeModal = () => hamburgerStore.setClose()
+const handleHamburgerClick = () => {
+  hamburgerStore.flipState()
+  if (!hamburgerStore.isOpen && isRootPath) {
+    body.classList.add("black")
+  } else {
+    body.classList.remove("black")
+  }
+}
+// const headerClick = () => hamburgerStore.flipState()
+const closeModal = () => {
+  hamburgerStore.setClose()
+  body.classList.remove("black")
+}
 const closeOnEsc = (event: KeyboardEvent) => {
   if (event.key === "Escape" && hamburgerStore.isOpen === true)
     hamburgerStore.setClose()
@@ -32,7 +44,6 @@ const closeOnEsc = (event: KeyboardEvent) => {
     <router-link to="/">
       <HeaderItem
         :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
-        @click="headerClick"
       >
         <p v-if="!hamburgerStore.isOpen" id="kasia" class="leading-[1.4em] tracking-[4px]">
           KASIA BELL

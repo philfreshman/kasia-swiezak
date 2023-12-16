@@ -1,8 +1,15 @@
 <script lang="ts" setup>
 
+const body = document.getElementsByTagName("body")[0]
+
+onBeforeRouteLeave(() => {
+  body.classList.remove("black")
+})
+
 onMounted(() => {
-  document.addEventListener("keyup", handleArrowKey)
   replaceArrows()
+  body.classList.add("black")
+  document.addEventListener("keyup", handleArrowKey)
 })
 
 type HeroImage = {
@@ -128,7 +135,7 @@ const replaceArrows = () => {
 
 
 .carousel
-  height: 100vh
+  height: 100%
 
   &__viewport
     height: 100% !important

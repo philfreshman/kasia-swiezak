@@ -123,7 +123,7 @@ const replaceArrows = () => {
   background-size: cover
   background-repeat: no-repeat
   background-position: center
-  height: 100vh
+  height: 100svh
   width: 100vw
 
 

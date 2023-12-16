@@ -26,7 +26,7 @@ const closeOnEsc = (event: KeyboardEvent) => {
 <template>
   <div
     id="header"
-    :class="headerStore.isTransparent ? 'bg-transparent' : 'bg-white' "
+    :class="headerStore.isTransparent ? 'absolute' : 'bg-white'"
     class="z-20 top-0 w-full flex row justify-between overflow-hidden 2xl:absolute 2xl:bg-transparent"
   >
     <router-link to="/">

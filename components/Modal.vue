@@ -14,7 +14,7 @@ const close = () => emit("closeModal")
 <template>
   <div v-if="open">
     <div :class="open ? 'slider__open' : 'slider__closed'" class="modal line">
-      <div class="links">
+      <div class="modal-link">
         <router-link to="about" @click="close">
           <ModalLink class="lineUp"> ABOUT</ModalLink>
         </router-link>
@@ -52,7 +52,7 @@ const close = () => emit("closeModal")
   justify-content: center
   align-items: center
 
-.links
+.modal-link
   display: flex
   flex-direction: column
   justify-content: center

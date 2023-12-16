@@ -2,6 +2,7 @@
 import Modal from "./Modal.vue"
 import Hamburger from "./Hamburger.vue"
 import { useHeaderStore } from "~/stores/header"
+import HeaderItem from "~/components/HeaderItem.vue"
 
 const hamburgerStore = useHamburgerStore()
 const headerStore = useHeaderStore()
@@ -25,53 +26,29 @@ const closeOnEsc = (event: KeyboardEvent) => {
 <template>
   <div
     id="header"
-    :class="headerStore.isTransparent ? 'bg-transparent' : 'bg-white md:bg-transparent' "
+    :class="headerStore.isTransparent ? 'bg-transparent' : 'bg-white' "
+    class="z-20 top-0 w-full flex row justify-between overflow-hidden 2xl:absolute 2xl:bg-transparent"
   >
     <router-link to="/">
-      <div
+      <HeaderItem
         :class="isRootPath && !hamburgerStore.isOpen? 'invert' : '' "
-        class="m-[var(--page-margin-sm)] md:m-[var(--page-margin-md)] lg:m-[var(--page-margin-lg)]"
         @click="headerClick"
       >
-        <p v-if="!hamburgerStore.isOpen" id="kasia" class="leading-[1.4em]">
+        <p v-if="!hamburgerStore.isOpen" id="kasia" class="leading-[1.4em] tracking-[4px]">
           KASIA BELL
         </p>
         <p v-if="!hamburgerStore.isOpen" id="production-design" class="pt-1">
           Production Design & Set Decoration
         </p>
-      </div>
+      </HeaderItem>
     </router-link>
-    <div class="m-[var(--page-margin-sm)] md:m-[var(--page-margin-md)] lg:m-[var(--page-margin-lg)]">
+    <HeaderItem>
       <Hamburger
         :invert-header="isRootPath && !hamburgerStore.isOpen && headerStore.isTransparent"
-        class="m-50"
         @click="handleHamburgerClick"
       />
-    </div>
+    </HeaderItem>
   </div>
   <Modal :open="hamburgerStore.isOpen" @close-modal="closeModal" />
 </template>
 
-<style lang="sass" scoped>
-
-#header
-  z-index: 123
-  top: 0
-  float: left
-  position: fixed
-  width: 100%
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-
-
-#kasia
-  letter-spacing: 4px
-  font-size: 1.58rem
-
-
-#production-design
-  font-size: 1rem
-
-
-</style>

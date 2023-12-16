@@ -1,20 +1,27 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+
 \:root
   text-rendering: optimizeLegibility
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   -webkit-text-size-adjust: 100%
-  --page-margin-xl: 15vw
-  --page-margin-lg: 50px
+  --page-margin-2xl: 50px
+  --page-margin-xl: 40px
+  --page-margin-lg: 30px
   --page-margin-md: 25px
   --page-margin-sm: 15px
   --h2-font-lg: 19.5px
 
 .box
   padding-bottom: var(--page-margin-lg)
-  margin-top: min(35vw, 200px)
+  margin-top: min(8vw, 55px)
 
 
+body
+  height: 100svh
 
 
-
-
+#__nuxt
+  height: 100%

@@ -1,13 +1,17 @@
 import type { Config } from "tailwindcss"
 
 export default {
-  content: [],
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+  ],
   theme: {
-    // spacing: {
-    // "1": "8px",
-    // "2": "16px",
-    // ... other spacing values
-    // },
+    extend: {
+      fontSize: {
+        "3xl": "1rem", // Set the desired size for text-3xl
+      },
+    },
   },
   plugins: [],
 } satisfies Config

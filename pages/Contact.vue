@@ -1,9 +1,4 @@
-<script lang="ts" setup>
-
-</script>
-
 <template>
-
   <div id="contact">
     <div>
       <a href="mailto:mail@kasiaswiezak.com"><p>mail(at)kasiaswiezak.com</p></a>
@@ -13,12 +8,10 @@
     </div>
 
   </div>
-
-
+  <!--  </Container>-->
 </template>
 
 <style lang="sass" scoped>
-
 
 .center
   display: flex
@@ -29,10 +22,12 @@
 
 
 #contact
+  top: 0
+  position: absolute
   font-size: 1.5rem
+  margin-top: -10px
   height: 100%
   width: 100%
-  position: absolute
   display: flex
   flex-direction: column
   justify-content: center

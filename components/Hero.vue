@@ -5,7 +5,6 @@ onMounted(() => {
   replaceArrows()
 })
 
-
 type HeroImage = {
   id: number
   url: string
@@ -144,7 +143,7 @@ const replaceArrows = () => {
 
 .carousel__prev, .carousel__next
   width: 173px !important
-  top: calc(100% - var(--page-margin-lg) - 10px) !important
+  top: calc(100% - var(--page-margin-xl) - 10px) !important
 
 .carousel__prev
   left: -10px !important

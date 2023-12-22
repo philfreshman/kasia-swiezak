@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const body = document.getElementsByTagName("body")[0]
 onBeforeRouteLeave(() => {
-  console.log("leaving...")
   body.classList.remove("black")
 })
 

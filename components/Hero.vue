@@ -75,10 +75,10 @@ const images = readonly<HeroImage[]>([
 const handleArrowKey = (event: KeyboardEvent) => {
   switch (event.key) {
     case "ArrowLeft":
-      ;(carousel.value as any).prev()
+      carousel.value.prev()
       break
     case "ArrowRight":
-      ;(carousel.value as any).next()
+      carousel.value.next()
       break
   }
 }

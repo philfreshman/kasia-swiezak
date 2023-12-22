@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 const body = document.getElementsByTagName("body")[0]
 
 onBeforeRouteLeave(() => {
@@ -20,7 +19,6 @@ type HeroImage = {
 // https://pixelied.com/convert/png-converter/png-to-webp
 // https://pixelied.com/convert/png-converter/png-to-webp
 // https://pixelied.com/convert/png-converter/png-to-webp
-
 
 const carousel = ref()
 const images = readonly<HeroImage[]>([
@@ -71,20 +69,19 @@ const images = readonly<HeroImage[]>([
   {
     id: 12,
     url: "./images/new/12_Schmidt-Whg_Tekla.png",
-  }])
-
+  },
+])
 
 const handleArrowKey = (event: KeyboardEvent) => {
   switch (event.key) {
-  case "ArrowLeft":
-    (carousel.value as any).prev()
-    break
-  case "ArrowRight":
-    (carousel.value as any).next()
-    break
+    case "ArrowLeft":
+      ;(carousel.value as any).prev()
+      break
+    case "ArrowRight":
+      ;(carousel.value as any).next()
+      break
   }
 }
-
 
 const replaceArrows = () => {
   const icons = document.getElementsByClassName("carousel__icon")
@@ -92,27 +89,24 @@ const replaceArrows = () => {
     icons[i].setAttribute("viewBox", "0 0 39 11")
     const arrow = icons[i].lastChild as HTMLElement
     if (i % 2 == 0) {
-      arrow.setAttribute("d", "m6.482 10.914.388-.387L2.868 6.008H40v-.68h-37.133l4.132-4.312-.387-.387L1.749 5.621z")
+      arrow.setAttribute(
+        "d",
+        "m6.482 10.914.388-.387L2.868 6.008H40v-.68h-37.133l4.132-4.312-.387-.387L1.749 5.621z",
+      )
     } else {
-      arrow.setAttribute("d", "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z")
+      arrow.setAttribute(
+        "d",
+        "m33.518.086-.388.387L37.132 4.992H0v.68h37.133l-4.132 4.312.387.387L38.251 5.379z",
+      )
     }
   }
 }
-
 </script>
 
 <template>
-  <NuxtCarousel
-    ref="carousel"
-    :autoplay="6000"
-    touchDrag
-    wrap-around
-  >
-    <NuxtSlide v-for="(image) in images" :key="image.id">
-      <div
-        :style="`background-image: url(${image.url})`"
-        class="hero-image"
-      />
+  <NuxtCarousel ref="carousel" :autoplay="6000" touchDrag wrap-around>
+    <NuxtSlide v-for="image in images" :key="image.id">
+      <div :style="`background-image: url(${image.url})`" class="hero-image" />
     </NuxtSlide>
 
     <template #addons>
@@ -120,7 +114,6 @@ const replaceArrows = () => {
     </template>
   </NuxtCarousel>
 </template>
-
 
 <style lang="sass">
 
@@ -163,6 +156,4 @@ const replaceArrows = () => {
 
 .carousel__liveregion.carousel__sr-only
   height: 0
-
-
 </style>

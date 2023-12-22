@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 const body = document.getElementsByTagName("body")[0]
 onBeforeRouteLeave(() => {
   console.log("leaving...")
@@ -12,11 +11,9 @@ defineProps({
   open: Boolean,
 })
 
-
 function close() {
   emit("closeModal")
 }
-
 </script>
 
 <template>
@@ -39,7 +36,6 @@ function close() {
           <h2 class="lineUp text-md sm:text-xl md:text-xl">Imprint</h2>
         </router-link>
       </div>
-
     </div>
   </div>
 </template>
@@ -88,5 +84,4 @@ function close() {
   100%
     opacity: 1
     transform: translateY(0%)
-
 </style>

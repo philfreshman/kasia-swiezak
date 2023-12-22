@@ -16,7 +16,13 @@ export default defineNuxtConfig({
       meta: [
         { name: "description", content: "Kasia Bell personal website" },
         { name: "keywords", content: "production design, set decoration, film, movies, design, art, berlin" },
+        { name: "Cache-Control", content: "no-cache, no-store, must-revalidate" },
+        { name: "Pragma", content: "no-cache" },
+        { name: "Expires", content: "0" },
       ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/images/fav.ico' }
+      ]
     },
   },
   ssr: false,

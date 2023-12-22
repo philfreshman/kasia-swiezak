@@ -10,18 +10,15 @@ const props = defineProps({
 const hamburgerStore = useHamburgerStore()
 hamburgerStore.flipState()
 
-
 const hamburgerClick = (e: Event) => {
   // document.getElementById("bar")?.classList.remove("hover")
 
-  if (props.static)
-    e.preventDefault()
+  if (props.static) e.preventDefault()
 }
 
-
 const addHover = () => document.getElementById("newHam")?.classList.add("glow")
-const removeHover = () => document.getElementById("newHam")?.classList.remove("glow")
-
+const removeHover = () =>
+  document.getElementById("newHam")?.classList.remove("glow")
 
 onMounted(() => {
   if (hamburgerStore.isOpen) {
@@ -30,24 +27,40 @@ onMounted(() => {
     })
   }
 })
-
-
 </script>
 
 <template>
-  <div :class="props.invertHeader ? 'invert' : '' ">
-    <input :checked="hamburgerStore.isOpen" class="toggle" type="checkbox"
-           @click="hamburgerClick" />
+  <div :class="props.invertHeader ? 'invert' : ''">
+    <input
+      :checked="hamburgerStore.isOpen"
+      class="toggle"
+      type="checkbox"
+      @click="hamburgerClick"
+    />
     <div class="hamburger" @mouseenter="addHover" @mouseleave="removeHover">
       <span v-if="!hamburgerStore.isOpen">
-        <svg id="newHam" fill="none" height="40" viewBox="0 0 33 33" width="40" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          id="newHam"
+          fill="none"
+          height="40"
+          viewBox="0 0 33 33"
+          width="40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path d="M25.3158 13.5617H8.1377" stroke="rgba(0, 0, 0, 0.75)" />
           <path d="M25.3158 19.4384H8.1377" stroke="rgba(0, 0, 0, 0.75)" />
           <circle cx="16.5" cy="16.5" r="16" stroke="rgba(0, 0, 0, 0.75)" />
         </svg>
       </span>
       <span v-else @mouseenter="addHover" @mouseleave="removeHover">
-        <svg id="newHam" fill="none" height="40" viewBox="0 0 33 33" width="40" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          id="newHam"
+          fill="none"
+          height="40"
+          viewBox="0 0 33 33"
+          width="40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path d="M22.1467 10L10 22.1467" stroke="rgba(0, 0, 0, 0.75)" />
           <path d="M22.1467 22.2935L10 10.1467" stroke="rgba(0, 0, 0, 0.75)" />
           <circle cx="16.5" cy="16.5" r="16" stroke="rgba(0, 0, 0, 0.75)" />
@@ -82,6 +95,4 @@ onMounted(() => {
 
   &:hover
     cursor: pointer
-
-
 </style>

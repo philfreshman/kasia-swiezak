@@ -11,8 +11,6 @@ const hamburgerStore = useHamburgerStore()
 hamburgerStore.flipState()
 
 const hamburgerClick = (e: Event) => {
-  // document.getElementById("bar")?.classList.remove("hover")
-
   if (props.static) e.preventDefault()
 }
 
@@ -41,6 +39,7 @@ onMounted(() => {
       <span v-if="!hamburgerStore.isOpen">
         <svg
           id="newHam"
+          class="hamburger-shadow"
           fill="none"
           height="40"
           viewBox="0 0 33 33"
@@ -55,6 +54,7 @@ onMounted(() => {
       <span v-else @mouseenter="addHover" @mouseleave="removeHover">
         <svg
           id="newHam"
+          class="hamburger-shadow"
           fill="none"
           height="40"
           viewBox="0 0 33 33"
@@ -71,6 +71,9 @@ onMounted(() => {
 </template>
 
 <style lang="sass" scoped>
+
+.hamburger-shadow
+  filter: drop-shadow(0px 0px 4px #ffffff)
 
 .glow
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25))

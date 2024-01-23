@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+
+
 const body = document.getElementsByTagName("body")[0]
+const carousel = ref()
 
 onBeforeRouteLeave(() => {
   body.classList.remove("black")
@@ -16,59 +19,79 @@ type HeroImage = {
   url: string
 }
 
-// https://pixelied.com/convert/png-converter/png-to-webp
-// https://pixelied.com/convert/png-converter/png-to-webp
-// https://pixelied.com/convert/png-converter/png-to-webp
 
-const carousel = ref()
+const width = ref(window.innerWidth)
+
+const updateWidth = () => {
+  width.value = window.innerWidth
+}
+
+onMounted(() => {
+  window.addEventListener("resize", updateWidth)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateWidth)
+})
+
+
+const imageType = computed(() => {
+  if (width.value < 700) {
+    return "narrow"
+  } else {
+    return "full"
+  }
+})
+
+
 const images = readonly<HeroImage[]>([
   {
     id: 1,
-    url: "./images/new/1_Anselm.webp",
+    url: `./images/${imageType.value}/1_.webp`,
   },
   {
     id: 2,
-    url: "./images/new/2_table_room.webp",
+    url: `./images/${imageType.value}/2_.webp`,
   },
   {
     id: 3,
-    url: "./images/new/3_Schmidt.png",
+    url: `./images/${imageType.value}/3_.webp`,
   },
   {
     id: 4,
-    url: "./images/new/4_AON.png",
+    url: `./images/${imageType.value}/4_.webp`,
   },
   {
     id: 5,
-    url: "./images/new/5_das_Quartett.webp",
+    url: `./images/${imageType.value}/5_.webp`,
   },
   {
     id: 6,
-    url: "./images/new/6_AON-Club.jpg",
+    url: `./images/${imageType.value}/6_.webp`,
   },
   {
     id: 7,
-    url: "./images/new/7_Sehsuchte.webp",
+    url: `./images/${imageType.value}/7_.webp`,
   },
   {
     id: 8,
-    url: "./images/new/8_AON-Konfi.jpg",
+    url: `./images/${imageType.value}/8_.webp`,
   },
   {
     id: 9,
-    url: "./images/new/9_Wiedergeburt.jpg",
+    url: `./images/${imageType.value}/9_.webp`,
   },
   {
     id: 10,
-    url: "./images/new/10_Hornemann.jpg",
+    url: `./images/${imageType.value}/10_.webp`,
   },
   {
     id: 11,
-    url: "./images/new/11_Buero_Melissa.jpg",
+    url: `./images/${imageType.value}/11_.webp`,
   },
   {
     id: 12,
-    url: "./images/new/12_Schmidt-Whg_Tekla.png",
+    url: `./images/${imageType.value}/12_.webp`,
   },
 ])
 
@@ -101,6 +124,8 @@ const replaceArrows = () => {
     }
   }
 }
+
+
 </script>
 
 <template>
@@ -142,14 +167,19 @@ const replaceArrows = () => {
   width: 80px !important
 
 .carousel__prev, .carousel__next
-  width: 173px !important
+  display: flex
+  flex-direction: row
+  width: 80px !important
   top: calc(100% - var(--page-margin-xl) - 10px) !important
 
 .carousel__prev
   left: -10px !important
+  justify-content: start
 
 .carousel__next
   right: -10px !important
+  justify-content: end
+
 
 .carousel__icon:hover
   fill: white !important

@@ -1,9 +1,10 @@
 <template>
   <Container>
+
     <div
       class="box mx-[var(--page-margin-sm)] py-10 leading-9 md:mx-[var(--page-margin-lg)] lg:mx-[14vw] xl:mx-[20vw]"
     >
-      <p class="text-2xl">
+      <p class="text-xl">
         Kasia Bell (née Swiezak) was born in Poland, grew up in Western Germany
         and is now based in Berlin. She has a wide educational background,
         having studied integrated Design at the University of the Arts Bremen.
@@ -27,5 +28,6 @@
         and storytelling of the projects she works on.
       </p>
     </div>
+
   </Container>
 </template>

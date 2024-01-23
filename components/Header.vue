@@ -43,11 +43,11 @@ const closeOnEsc = (event: KeyboardEvent) => {
         <p
           v-if="!hamburgerStore.isOpen"
           id="kasia"
-          class="leading-[1.4em] tracking-[4px]"
+          class="leading-[1.4em] tracking-[4px] text-shadow"
         >
           KASIA BELL
         </p>
-        <p v-if="!hamburgerStore.isOpen" id="production-design" class="pt-1">
+        <p v-if="!hamburgerStore.isOpen" id="production-design" class="pt-1 text-shadow">
           Production Design & Set Decoration
         </p>
       </HeaderItem>
@@ -63,3 +63,10 @@ const closeOnEsc = (event: KeyboardEvent) => {
   </div>
   <Modal :open="hamburgerStore.isOpen" @close-modal="closeModal" />
 </template>
+
+
+<style lang="css">
+.text-shadow {
+  text-shadow: 0px 0px 10px #ffffff;
+}
+</style>

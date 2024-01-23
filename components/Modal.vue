@@ -30,11 +30,11 @@ function close() {
         </router-link>
       </div>
 
-      <div class="absolute bottom-[var(--page-margin-lg)]">
-        <router-link to="legal" @click="close">
-          <h2 class="lineUp text-md sm:text-xl md:text-xl">Imprint</h2>
-        </router-link>
-      </div>
+      <!--      <div class="absolute bottom-[var(&#45;&#45;page-margin-lg)]">-->
+      <!--        <router-link to="legal" @click="close">-->
+      <!--          <h2 class="lineUp text-md sm:text-xl md:text-xl">Imprint</h2>-->
+      <!--        </router-link>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>

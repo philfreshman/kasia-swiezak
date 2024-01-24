@@ -3,6 +3,7 @@ import Modal from "./Modal.vue"
 import Hamburger from "./Hamburger.vue"
 import { useHeaderStore } from "~/stores/header"
 import HeaderItem from "~/components/HeaderItem.vue"
+import useMobile from "~/composables/useMobile"
 
 const hamburgerStore = useHamburgerStore()
 const headerStore = useHeaderStore()
@@ -30,6 +31,10 @@ const closeOnEsc = (event: KeyboardEvent) => {
   if (event.key === "Escape" && hamburgerStore.isOpen === true)
     hamburgerStore.setClose()
 }
+
+const isMobile = useMobile().isMobile
+
+
 </script>
 
 <template>
@@ -43,11 +48,12 @@ const closeOnEsc = (event: KeyboardEvent) => {
         <p
           v-if="!hamburgerStore.isOpen"
           id="kasia"
-          class="leading-[1.4em] tracking-[4px] text-shadow"
+          :class="isMobile ? 'text-[1.90rem] pt-[2px]' : 'text-[1.68rem]'"
+          class="tracking-[4px] text-shadow leading-[80%]"
         >
           KASIA BELL
         </p>
-        <p v-if="!hamburgerStore.isOpen" id="production-design" class="pt-1 text-shadow">
+        <p v-if="!isMobile && !hamburgerStore.isOpen" id="production-design" class="pt-1 text-shadow">
           Production Design & Set Decoration
         </p>
       </HeaderItem>

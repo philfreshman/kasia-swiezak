@@ -13,7 +13,7 @@ export default {
             },
         },
         fontFamily: {
-            "minion": "Raleway, serif",
+            "minion": "Minion-Pro, serif",
         },
     },
     plugins: [],

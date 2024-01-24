@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 import { useHamburgerStore } from "~/stores/hamburger"
 import { onMounted } from "vue"
+import useMobile from "~/composables/useMobile"
 
 const props = defineProps({
   invertHeader: { type: Boolean, required: true },
   static: { type: Boolean, required: false },
 })
+
+const isMobile = useMobile().isMobile
+
 
 const hamburgerStore = useHamburgerStore()
 hamburgerStore.flipState()
@@ -15,8 +19,7 @@ const hamburgerClick = (e: Event) => {
 }
 
 const addHover = () => document.getElementById("newHam")?.classList.add("glow")
-const removeHover = () =>
-  document.getElementById("newHam")?.classList.remove("glow")
+const removeHover = () => document.getElementById("newHam")?.classList.remove("glow")
 
 onMounted(() => {
   if (hamburgerStore.isOpen) {
@@ -39,11 +42,11 @@ onMounted(() => {
       <span v-if="!hamburgerStore.isOpen">
         <svg
           id="newHam"
+          :height="isMobile ? 27 : 40"
+          :width="isMobile ? 27 : 40"
           class="hamburger-shadow"
           fill="none"
-          height="40"
           viewBox="0 0 33 33"
-          width="40"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M25.3158 13.5617H8.1377" stroke="rgba(0, 0, 0, 0.75)" />
@@ -54,11 +57,11 @@ onMounted(() => {
       <span v-else @mouseenter="addHover" @mouseleave="removeHover">
         <svg
           id="newHam"
+          :height="isMobile ? 27 : 40"
+          :width="isMobile ? 27 : 40"
           class="hamburger-shadow"
           fill="none"
-          height="40"
           viewBox="0 0 33 33"
-          width="40"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M22.1467 10L10 22.1467" stroke="rgba(0, 0, 0, 0.75)" />

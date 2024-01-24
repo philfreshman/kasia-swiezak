@@ -1,18 +1,5 @@
 <script lang="ts" setup>
-
-
-const body = document.getElementsByTagName("body")[0]
-const carousel = ref()
-
-onBeforeRouteLeave(() => {
-  body.classList.remove("black")
-})
-
-onMounted(() => {
-  replaceArrows()
-  body.classList.add("black")
-  document.addEventListener("keyup", handleArrowKey)
-})
+import useMobile from "~/composables/useMobile"
 
 type HeroImage = {
   id: number
@@ -20,29 +7,30 @@ type HeroImage = {
 }
 
 
-const width = ref(window.innerWidth)
-
-const updateWidth = () => {
-  width.value = window.innerWidth
-}
+onBeforeRouteLeave(() => {
+  document.body.classList.remove("black")
+  document.removeEventListener("keyup", handleArrowKey)
+})
 
 onMounted(() => {
-  window.addEventListener("resize", updateWidth)
+  replaceArrows()
+  document.body.classList.add("black")
+  document.addEventListener("keyup", handleArrowKey)
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", updateWidth)
-})
 
+const carousel = ref()
+const isMobile = useMobile()
 
 const imageType = computed(() => {
-  if (width.value < 700) {
+  if (isMobile.isMobile.value) {
+    console.log("narrow")
     return "narrow"
   } else {
+    console.log("full")
     return "full"
   }
 })
-
 
 const images = readonly<HeroImage[]>([
   {
@@ -135,7 +123,7 @@ const replaceArrows = () => {
     </NuxtSlide>
 
     <template #addons>
-      <NuxtNavigation />
+      <NuxtNavigation class="arrows-responsive" />
     </template>
   </NuxtCarousel>
 </template>
@@ -173,11 +161,9 @@ const replaceArrows = () => {
   top: calc(100% - var(--page-margin-xl) - 10px) !important
 
 .carousel__prev
-  left: -10px !important
   justify-content: start
 
 .carousel__next
-  right: -10px !important
   justify-content: end
 
 
@@ -186,4 +172,27 @@ const replaceArrows = () => {
 
 .carousel__liveregion.carousel__sr-only
   height: 0
+
+
+.arrows-responsive
+  @media only screen and (min-width: 600px)
+    margin-left: var(--page-margin-sm)
+    margin-right: var(--page-margin-sm)
+
+  @media only screen and (min-width: 768px)
+    margin-left: var(--page-margin-md)
+    margin-right: var(--page-margin-md)
+
+  @media only screen and (min-width: 992px)
+    margin-left: var(--page-margin-lg)
+    margin-right: var(--page-margin-lg)
+
+  @media only screen and (min-width: 1200px)
+    margin-left: var(--page-margin-xl)
+    margin-right: var(--page-margin-xl)
+
+  @media only screen and (min-width: 1536px)
+    margin-left: var(--page-margin-2xl)
+    margin-right: var(--page-margin-2xl)
+
 </style>

@@ -2,7 +2,7 @@ include .env
 export
 
 
-IGNORE_IMAGES = false
+IGNORE_IMAGES = true
 
 all: build copy_to_ftp
 

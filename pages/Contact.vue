@@ -3,9 +3,9 @@
 
     <div class="h-full flex flex-row justify-center items-center">
       <div id="contact"
-           class="text-xl sm:text-xl lg:text-[25px] flex flex-col items-center justify-between h-20 tracking-[2px]">
+           class="text-xl sm:text-xl lg:text-[25px] flex flex-col items-center justify-between h-16 tracking-[2px]">
         <a href="mailto:mail@kasiaswiezak.com"><p>mail(at)kasiaswiezak.com</p></a>
-        <a class="center pt-2" href="tel:+49123456789"><p>+49 176 238 778 20</p></a>
+        <a class="center pt-3" href="tel:+49123456789"><p>+49 176 238 778 20</p></a>
       </div>
     </div>
 

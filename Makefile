@@ -4,8 +4,9 @@ export
 
 IGNORE_IMAGES = true
 
-all: build copy_to_ftp
 
+
+all: build copy_to_ftp
 
 copy_to_ftp:
 	@echo "Copying files to ftp...\n"
@@ -19,6 +20,12 @@ build:
 #	@make generate > /dev/null 2>&1
 	@make generate
 	@echo "Build finished\n"
+	@make low
+
+low:
+	 @echo "Lowercasing directories...\n"
+	 cd .output/public && find . -depth -type d -exec bash -c 'lower=$$(echo "$$1" | tr "[:upper:]" "[:lower:]"); mv "$$1" "$$lower"' _ {} \;
+	 @echo "Lowercasing finished\n"
 
 
 transfer:
@@ -32,7 +39,8 @@ endif
 
 
 generate:
-	bunx nuxi generate
+	 bunx nuxi generate
+
 
 
 

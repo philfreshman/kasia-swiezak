@@ -6,7 +6,6 @@ type HeroImage = {
   url: string
 }
 
-
 onBeforeRouteLeave(() => {
   document.body.classList.remove("black")
   document.removeEventListener("keyup", handleArrowKey)
@@ -18,16 +17,14 @@ onMounted(() => {
   document.addEventListener("keyup", handleArrowKey)
 })
 
-
 const carousel = ref()
+
 const isMobile = useMobile()
 
 const imageType = computed(() => {
   if (isMobile.isMobile.value) {
-    console.log("narrow")
     return "narrow"
   } else {
-    console.log("full")
     return "full"
   }
 })
@@ -112,7 +109,6 @@ const replaceArrows = () => {
     }
   }
 }
-
 
 </script>
 

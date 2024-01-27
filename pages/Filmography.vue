@@ -3,7 +3,7 @@
     <div
       class="box mx-[var(--page-margin-sm)] flex w-fit flex-col py-10 md:mx-[var(--page-margin-md)] lg:mx-auto xl:m-auto"
     >
-      <TimelineRow>
+      <TimelineRow class="pt-10">
         <template #top-row><h2>2021</h2></template>
         <template #bottom-row>
           <p>

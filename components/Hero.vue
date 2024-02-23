@@ -78,6 +78,10 @@ const images = readonly<HeroImage[]>([
     id: 12,
     url: `./images/${imageType.value}/12_.webp`,
   },
+  {
+    id: 13,
+    url: `./images/${imageType.value}/13_.webp`,
+  },
 ])
 
 const handleArrowKey = (event: KeyboardEvent) => {

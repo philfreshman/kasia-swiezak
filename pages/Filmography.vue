@@ -7,12 +7,12 @@
         <template #top-row><h2>2021</h2></template>
         <template #bottom-row>
           <p class="pb-3">
-            'Anselm - Das Rauschen der Zeit, Documentary Feature', Road Movies
+            'Anselm - Das Rauschen der Zeit', Documentary Feature, Road Movies
             GmbH | Set Decorator<br />
             Director: Wim Wenders
           </p>
           <p>
-            'Germany's Next Topmodell - by Heidi Klum, TV-Show', Redseven
+            'Germany's Next Topmodell - by Heidi Klum', TV-Show, Redseven
             Entertainment | Set Decorator<br />
             Director: Oliver Peege
           </p>
@@ -23,7 +23,7 @@
         <template #top-row><h2>2020</h2></template>
         <template #bottom-row>
           <p>
-            'Just One Last Question, TV-Show', Netflix / Zoo Agency GmbH | Set
+            'Just One Last Question', TV-Show, Netflix / Zoo Agency GmbH | Set
             Decorator<br />
             Director: Marcel Behnke
           </p>
@@ -179,25 +179,12 @@
             Designer<br />
             Director: Jan Speckenbach, Production Designer: Beatrice Schultz
           </p>
-          <p class="pb-3">
-            'Augen zu', Short, Filmakademie Ludwigsburg | Production Designer<br />
-            Director: Julia Ziesche
-          </p>
-          <p>
-            'Diebe', Short, HFF Potsdam | Production Designer<br />
-            Director: Lydia Dykier
-          </p>
         </template>
       </TimelineRow>
 
       <TimelineRow>
         <template #top-row><h2>2010</h2></template>
         <template #bottom-row>
-          <p class="pb-3">
-            'Reported Missing', Feature, Junifilm GmbH | Assistant Production
-            Designer<br />
-            Director: Jan Speckenbach, Production Designer: Beatrice Schultz
-          </p>
           <p class="pb-3">
             'Augen zu', Short, Filmakademie Ludwigsburg | Production Designer<br />
             Director: Julia Ziesche
@@ -265,5 +252,3 @@
     </div>
   </Container>
 </template>
-<script lang="ts" setup>
-</script>
